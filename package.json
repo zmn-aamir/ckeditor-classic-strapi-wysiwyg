@@ -1,5 +1,5 @@
 {
-  "name": "@toantk911/ckeditor5-build-strapi-wysiwyg",
+  "name": "@AdilAmanat/ckeditor-classic-strapi-wysiwyg",
   "version": "1.8.4",
   "description": "CKEditor 5 build for Strapi WYSIWYG editor replacement",
   "private": false,
