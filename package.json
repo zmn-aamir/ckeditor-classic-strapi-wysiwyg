@@ -70,15 +70,15 @@
     "node": ">=12.0.0",
     "npm": ">=5.7.1"
   },
-  "author": "Toan Tran (https://github.com/toantk911)",
+  "author": "Adil Amanat (https://github.com/AdilAmanat)",
   "license": "GPL-2.0-or-later",
-  "homepage": "https://github.com/toantk911/ckeditor5-build-strapi-wysiwyg",
+  "homepage": "https://github.com/AdilAmanat/ckeditor-classic-strapi-wysiwyg",
   "bugs": {
-    "url": "https://github.com/toantk911/ckeditor5-build-strapi-wysiwyg"
+    "url": "https://github.com/Amanat/ckeditor-classic-strapi-wysiwyg"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/toantk911/ckeditor5-build-strapi-wysiwyg.git"
+    "url": "git+https://github.com/AdilAmanat/ckeditor-classic-strapi-wysiwyg.git"
   },
   "scripts": {
     "lint": "eslint --quiet \"**/*.js\"",
