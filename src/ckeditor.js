@@ -90,6 +90,12 @@ ClassicEditor.defaultConfig = {
 			'bulletedList',
 			'numberedList',
 			'insertImage',
+			'specialCharacters',
+			'blockQuote',
+			'insertTable',
+			'mediaEmbed',
+			'htmlEmbed',
+			'codeBlock',
 		],
 		shouldNotGroupWhenFull: true
 	},
