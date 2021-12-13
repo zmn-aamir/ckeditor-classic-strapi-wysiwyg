@@ -1,6 +1,6 @@
 {
   "name": "@AdilAmanat/ckeditor-classic-strapi-wysiwyg",
-  "version": "1.8.4",
+  "version": "1.0.0",
   "description": "CKEditor 5 build for Strapi WYSIWYG editor replacement",
   "private": false,
   "keywords": [
