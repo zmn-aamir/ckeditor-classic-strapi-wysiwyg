@@ -4,7 +4,6 @@ Enhanced build of [CKEditor 5](https://github.com/ckeditor/ckeditor5) to replace
 
 ![ckeditor5-build-strapi-wysiwyg sample](/sample.png)
 
-[👀 **Live Demo**](https://roslovets-inc.github.io/ckeditor5-build-strapi-wysiwyg/sample.html)
 
 
 ## Features
@@ -17,9 +16,6 @@ Enhanced build of [CKEditor 5](https://github.com/ckeditor/ckeditor5) to replace
 - Support Markdown
 
 
-## How to try
-
-Check out [👀 **live demo**](https://roslovets-inc.github.io/ckeditor5-build-strapi-wysiwyg/sample.html) where you can test most of the features.
 
 
 ## How to try manually
@@ -27,7 +23,7 @@ Check out [👀 **live demo**](https://roslovets-inc.github.io/ckeditor5-build-s
 1. Clone repository and change directory
 
 ```
-git clone https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg
+git clone https://github.com/AdilAmanat/ckeditor-classic-strapi-wysiwyg
 cd ckeditor5-build-strapi-wysiwyg
 ```
 
@@ -42,20 +38,20 @@ npm i
 
 ## How to use
 
-Just install to your Strapi [strapi-plugin-ckeditor5](https://github.com/Roslovets-Inc/strapi-plugin-ckeditor5) plugin based on this build (recommended).
+Just install to your Strapi [strapi-plugin-ckeditor5](https://github.com/AdilAmanat/ckeditor-classic-strapi-wysiwyg) plugin based on this build (recommended).
 
-If you want to integrate the build manually examine [strapi-plugin-ckeditor5](https://github.com/Roslovets-Inc/strapi-plugin-ckeditor5) source code as an integration example.
+If you want to integrate the build manually examine [strapi-plugin-ckeditor5](https://github.com/AdilAmanat/ckeditor-classic-strapi-wysiwyg) source code as an integration example.
 
 
 ## How to add more features to the editor
 
-If you want to see more features in this build feel free to request it in [issues](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg/issues) or create pull request. Together we will build a comprehensive editor for common needs.
+If you want to see more features in this build feel free to request it in [issues](https://github.com/AdilAmanat/ckeditor-classic-strapi-wysiwyg/issues) or create pull request. Together we will build a comprehensive editor for common needs.
 
 
 ## Links
 
-- [NPM package](https://www.npmjs.com/package/ckeditor5-build-strapi-wysiwyg)
-- [GitHub repository](https://github.com/Roslovets-Inc/ckeditor5-build-strapi-wysiwyg)
+- [NPM package](https://www.npmjs.com/package/@adilamanat/ckeditor-classic-strapi-wysiwyg)
+- [GitHub repository](https://github.com/AdilAmanat/ckeditor-classic-strapi-wysiwyg)
 
 
 ## ⭐️ Show your support
