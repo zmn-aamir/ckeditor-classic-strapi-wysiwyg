@@ -78,7 +78,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AdilAmanat/ckeditor-classic-strapi-wysiwyg.git"
+    "url": "git://github.com/AdilAmanat/ckeditor-classic-strapi-wysiwyg.git"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
   },
   "scripts": {
     "lint": "eslint --quiet \"**/*.js\"",
