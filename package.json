@@ -80,9 +80,6 @@
     "type": "git",
     "url": "git://github.com/AdilAmanat/ckeditor-classic-strapi-wysiwyg.git"
   },
-  "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
-  },
   "scripts": {
     "lint": "eslint --quiet \"**/*.js\"",
     "bootstrap": "yarn install",
