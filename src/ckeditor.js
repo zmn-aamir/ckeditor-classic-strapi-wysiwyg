@@ -69,6 +69,10 @@ ClassicEditor.builtinPlugins = [
 	LinkImage,
 	List,
 	Markdown,
+	Table,
+	TableToolbar,
+	TableProperties,
+	TableCellProperties,
 ];
 
 // Editor configuration.
