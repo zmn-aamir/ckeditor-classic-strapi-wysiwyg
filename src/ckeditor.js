@@ -180,7 +180,7 @@ ClassicEditor
 	.create( '<p>Hello world!</p>' )
 	.then( editor => {
 
-console.log("hello world");
+console.log("hello world 123");
  
 } )
 .catch( err => {
