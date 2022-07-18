@@ -172,4 +172,14 @@ ClassicEditor.defaultConfig = {
 	language: 'en'
 };
 
+ 
+ClassicEditor
+	.create( '<p>Hello world!</p>' )
+	.then( editor => {
+
 console.log("hello world");
+ 
+} )
+.catch( err => {
+	console.error( err.stack );
+} );
