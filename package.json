@@ -109,5 +109,7 @@
   "directories": {
     "test": "tests"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@ckpro/ckeditor5-popover": "^1.1.2"
+  }
 }
