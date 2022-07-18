@@ -42,7 +42,7 @@ import { StrapiUploadAdapter } from '@gtomato/ckeditor5-strapi-upload-plugin';
 import { StrapiMediaLib } from './strapi-medialib-plugin';
 import sanitizeHtml from 'sanitize-html';
 import FullScreen from './fullscreen-plugin';
-import Popover from '@ckpro/ckeditor5-popover'; // ADD THIS (1/3)
+//import Popover from '@ckpro/ckeditor5-popover'; // ADD THIS (1/3)
 
 export default class ClassicEditor extends ClassicEditorBase { }
 
@@ -74,7 +74,7 @@ ClassicEditor.builtinPlugins = [
 	TableToolbar,
 	TableProperties,
 	TableCellProperties,
-	Popover, // ADD THIS (2/3)
+	//Popover, // ADD THIS (2/3)
 ];
 
 // Editor configuration.
@@ -102,7 +102,7 @@ ClassicEditor.defaultConfig = {
 			'mediaEmbed',
 			'htmlEmbed',
 			'codeBlock',
-			'popover', // ADD THIS (3/3)
+			//'popover', // ADD THIS (3/3)
 		],
 		shouldNotGroupWhenFull: true
 	},
@@ -180,7 +180,7 @@ ClassicEditor
 	.create( '<p>Hello world!</p>' )
 	.then( editor => {
 
-console.log("hello world 123");
+	console.log("hello world1234");
  
 } )
 .catch( err => {
