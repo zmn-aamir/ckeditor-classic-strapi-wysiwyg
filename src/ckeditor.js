@@ -218,6 +218,7 @@ class InsertImage extends Plugin {
 						title: imageUrl
 					});
 					 writer.appendText('i', link);
+					const link123 =  writer.createElement('p', link)
 
 					// const link = writer.createElement( document, 'p', null, [ 'foo', createElement( document, 'img' ) ] ); 
                     // const imageElement = writer.createElement( 'imageBlock', {
@@ -228,9 +229,9 @@ class InsertImage extends Plugin {
 					// 	linkTitle: imageUrl
 					//   });
 console.log("ssss");
-console.log("abc: ", link, "selection: ",editor.model.document.selection);
+console.log("abc: ", link123, "selection: ",editor.model.document.selection);
                     // Insert the image in the current selection location.
-                    editor.model.insertContent( link, editor.model.document.selection );
+                    editor.model.insertContent( link123, editor.model.document.selection );
                 } );
             } );
 
