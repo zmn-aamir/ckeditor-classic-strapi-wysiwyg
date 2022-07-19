@@ -225,6 +225,7 @@ class InsertImage extends Plugin {
 							'title': imageUrl,
 						},
 					  });
+					  console.log("before", link._attrs);
 					  link._attrs[0].push("title", "adil amanat")
 					//   writer.setAttribute( 'class', imageUrl, link );
 				// 	const link = writer.createElement(`
