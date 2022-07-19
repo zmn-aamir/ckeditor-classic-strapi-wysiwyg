@@ -174,12 +174,13 @@ ClassicEditor.defaultConfig = {
 
  
 ClassicEditor
-	.create( '<p>Hello world!</p>' )
-	.then( editor => {
-
-	console.log("hello world1234");
- 
-} )
-.catch( err => {
-	console.error( err.stack );
-} );
+    .create( document.querySelector( '#editor' ), {
+        plugins: [ Essentials, Paragraph, Bold, Italic ],
+        toolbar: [ 'bold', 'italic' ]
+    } )
+    .then( editor => {
+        console.log( 'Editor was initialized', editor );
+    } )
+    .catch( error => {
+        console.error( error.stack );
+    } );
