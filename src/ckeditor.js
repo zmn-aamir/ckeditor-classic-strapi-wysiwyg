@@ -209,7 +209,7 @@ class InsertImage extends Plugin {
 					// writer.createAttributeElement( 'strong', { 'alignment': 'center' } );
 					
 					// Make `<a>` element contain other attributes element so the `<a>` element is not broken.
-					const link = writer.createAttributeElement( 'a', { href: 'foo.bar' }, { priority: 5 } );
+					// const link = writer.createAttributeElement( 'a', { href: 'foo.bar' }, { priority: 5 } );
 					
 					// // Set `id` of a marker element so it is not joined or merged with "normal" elements.
 					// writer.createAttributeElement( 'span', { class: 'myMarker' }, { id: 'marker:my' } );
@@ -217,14 +217,14 @@ class InsertImage extends Plugin {
 					// 	src: imageUrl,
 					// 	'data-mthml': "data.detail.latexFrmla",
 					// } );
-					// const link = writer.createText('i', {
-					// 	linkHref: 'https://file_link',
-					// 	attributes:{
-					// 		linkTitle: imageUrl,
-					// 		title: imageUrl,
-					// 		'title': imageUrl,
-					// 	},
-					//   });
+					const link = writer.createText('i', {
+						linkHref: 'https://file_link',
+						attributes:{
+							linkTitle: imageUrl,
+							title: imageUrl,
+							'title': imageUrl,
+						},
+					  });
 					//   writer.setAttribute( 'class', imageUrl, link );
 				// 	const link = writer.createElement(`
 				// 	<p>&nbsp;</p>
