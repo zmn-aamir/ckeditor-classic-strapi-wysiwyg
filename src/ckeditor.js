@@ -224,7 +224,7 @@ class InsertImage extends Plugin {
                     // } );
 					const link = writer.createText('i', {
 						linkHref: 'https://file_link',
-						title: imageUrl
+						linkTitle: imageUrl
 					  });
 console.log("ssss");
 console.log("abc: ", link, "selection: ",editor.model.document.selection);
