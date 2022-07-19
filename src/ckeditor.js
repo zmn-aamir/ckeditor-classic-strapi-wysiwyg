@@ -226,9 +226,9 @@ class InsertImage extends Plugin {
 					// } );
 					const link = writer.createText('i', {
 						linkHref: 'https://file_link',
-						linkTitle: imageUrl
+						// linkTitle: imageUrl
 					  });
-					  writer.setAttribute( 'bold', true, link );
+					  writer.setAttribute( 'title', imageUrl, link );
 				// 	const link = writer.createElement(`
 				// 	<p>&nbsp;</p>
 				// 	<a
