@@ -73,6 +73,7 @@ ClassicEditor.builtinPlugins = [
 	TableToolbar,
 	TableProperties,
 	TableCellProperties, 
+	InsertImage,
 ];
 
 // Editor configuration.
@@ -100,6 +101,7 @@ ClassicEditor.defaultConfig = {
 			'mediaEmbed',
 			'htmlEmbed',
 			'codeBlock', 
+			'InsertImage',
 		],
 		shouldNotGroupWhenFull: true
 	},
