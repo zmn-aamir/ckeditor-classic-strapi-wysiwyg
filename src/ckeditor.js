@@ -213,15 +213,19 @@ class InsertImage extends Plugin {
                 const imageUrl = prompt( 'ToolTip Text' );
 
                 editor.model.change( writer => {
-					const link = writer.createElement('a', {
-						href: '', 
-						title: 'file.pdf'
-					});
-					writer.appendText('i', link);
+					// const link = writer.createElement('a', {
+					// 	href: '', 
+					// 	title: 'file.pdf'
+					// });
+					// writer.appendText('i', link);
 
-                    const imageElement = writer.createElement( 'imageBlock', {
-                        src: imageUrl
-                    } );
+                    // const imageElement = writer.createElement( 'imageBlock', {
+                    //     src: imageUrl
+                    // } );
+					const link = writer.createText('i', {
+						linkHref: 'https://file_link',
+						title: imageUrl
+					  });
 console.log("ssss");
 console.log("abc: ", link, "selection: ",editor.model.document.selection);
                     // Insert the image in the current selection location.
