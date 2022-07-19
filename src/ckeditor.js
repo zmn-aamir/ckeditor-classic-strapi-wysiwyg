@@ -215,7 +215,7 @@ class InsertImage extends Plugin {
 						title: imageUrl,
 						'title': imageUrl,
 					  });
-					  writer.setAttribute( 'title', imageUrl, link );
+					  writer.setAttribute( 'class', imageUrl, link );
 				// 	const link = writer.createElement(`
 				// 	<p>&nbsp;</p>
 				// 	<a
