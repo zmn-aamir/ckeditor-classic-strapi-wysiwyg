@@ -41,8 +41,7 @@ import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock';
 import { StrapiUploadAdapter } from '@gtomato/ckeditor5-strapi-upload-plugin';
 import { StrapiMediaLib } from './strapi-medialib-plugin';
 import sanitizeHtml from 'sanitize-html';
-import FullScreen from './fullscreen-plugin';
-import Popover from '@ckpro/ckeditor5-popover'; // ADD THIS (1/3)
+import FullScreen from './fullscreen-plugin'; 
 
 export default class ClassicEditor extends ClassicEditorBase { }
 
@@ -73,8 +72,7 @@ ClassicEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	TableProperties,
-	TableCellProperties,
-	Popover, // ADD THIS (2/3)
+	TableCellProperties, 
 ];
 
 // Editor configuration.
@@ -101,8 +99,7 @@ ClassicEditor.defaultConfig = {
 			'insertTable',
 			'mediaEmbed',
 			'htmlEmbed',
-			'codeBlock',
-			'popover', // ADD THIS (3/3)
+			'codeBlock', 
 		],
 		shouldNotGroupWhenFull: true
 	},
