@@ -203,20 +203,21 @@ class InsertImage extends Plugin {
             const view = new ButtonView( locale );
 
             view.set( {
-                label: 'Insert image',
+                label: 'Tooltip',
                 icon: imageIcon,
                 tooltip: true
             } );
 
             // Callback executed once the image is clicked.
             view.on( 'execute', () => {
-                const imageUrl = prompt( 'Image URL' );
+                const imageUrl = prompt( 'ToolTip Text' );
 
                 editor.model.change( writer => {
                     const imageElement = writer.createElement( 'imageBlock', {
                         src: imageUrl
                     } );
-
+console.log("ssss");
+console.log("abc: ", imageElement, "selection: ",editor.model.document.selection);
                     // Insert the image in the current selection location.
                     editor.model.insertContent( imageElement, editor.model.document.selection );
                 } );
