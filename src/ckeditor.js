@@ -215,17 +215,18 @@ class InsertImage extends Plugin {
                 editor.model.change( writer => {
 					// const link = writer.createElement('a', {
 					// 	href: '', 
-					// 	title: 'file.pdf'
+					// 	title: imageUrl
 					// });
-					// writer.appendText('i', link);
+					//  writer.appendText('i', link);
 
+					 const link = write.createElement( document, 'p', null, [ 'foo', createElement( document, 'img' ) ] ); 
                     // const imageElement = writer.createElement( 'imageBlock', {
                     //     src: imageUrl
                     // } );
-					const link = writer.createText('i', {
-						linkHref: 'https://file_link',
-						linkTitle: imageUrl
-					  });
+					// const link = writer.createText('i', {
+					// 	linkHref: 'https://file_link',
+					// 	linkTitle: imageUrl
+					//   });
 console.log("ssss");
 console.log("abc: ", link, "selection: ",editor.model.document.selection);
                     // Insert the image in the current selection location.
