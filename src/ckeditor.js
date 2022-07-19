@@ -210,7 +210,16 @@ class InsertImage extends Plugin {
 
             // Callback executed once the image is clicked.
             view.on( 'execute', () => {
-                const imageURL = prompt( 'Image URL' );
+                const imageUrl = prompt( 'Image URL' );
+
+                editor.model.change( writer => {
+                    const imageElement = writer.createElement( 'imageBlock', {
+                        src: imageUrl
+                    } );
+
+                    // Insert the image in the current selection location.
+                    editor.model.insertContent( imageElement, editor.model.document.selection );
+                } );
             } );
 
             return view;
