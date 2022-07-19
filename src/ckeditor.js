@@ -213,25 +213,25 @@ class InsertImage extends Plugin {
                 const imageUrl = prompt( 'ToolTip Text' );
 
                 editor.model.change( writer => {
-					const link = writer.createElement('a', {
-						href: '', 
-						title: imageUrl
-					});
-					 writer.appendText('i', link);
-					const link123 =  writer.createElement('p', link)
+					// const link = writer.createElement('a', {
+					// 	href: '', 
+					// 	title: imageUrl
+					// });
+					//  writer.appendText('i', link);
 
 					// const link = writer.createElement( document, 'p', null, [ 'foo', createElement( document, 'img' ) ] ); 
-                    // const imageElement = writer.createElement( 'imageBlock', {
-                    //     src: imageUrl
-                    // } );
+                    const link = writer.createElement( 'image', {
+						src: imageUrl,
+						'data-mthml': "data.detail.latexFrmla",
+					} );
 					// const link = writer.createText('i', {
 					// 	linkHref: 'https://file_link',
 					// 	linkTitle: imageUrl
 					//   });
-console.log("ssss");
-console.log("abc: ", link123, "selection: ",editor.model.document.selection);
+					console.log("ssss");
+					console.log("abc: ", link, "selection: ",editor.model.document.selection);
                     // Insert the image in the current selection location.
-                    editor.model.insertContent( link123, editor.model.document.selection );
+                    editor.model.insertContent( link, editor.model.document.selection );
                 } );
             } );
 
