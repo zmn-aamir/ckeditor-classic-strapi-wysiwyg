@@ -204,7 +204,13 @@ class InsertImage extends Plugin {
 					// });
 					//  writer.appendText('i', link);
 
-					const link = writer.createElement(  'p', null, [ 'foo', writer.createElement( 'img' ) ] ); 
+					// const link = writer.createElement(  'p', null, [ 'foo', writer.createElement( 'img' ) ] ); 
+					const link = writer.createUIElement( 'a', null, function( domDocument ) {
+						const domElement = this.toDomElement( domDocument );
+						domElement.innerHTML = '<a title="anchor title">this is ui element</b>';
+					
+						return domElement;
+					} );
                     // const link = writer.createElement( 'image', {
 					// 	src: imageUrl,
 					// 	'data-mthml': "data.detail.latexFrmla",
