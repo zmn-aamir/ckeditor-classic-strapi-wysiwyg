@@ -225,7 +225,7 @@ class InsertImage extends Plugin {
 							'title': imageUrl,
 						},
 					  });
-					  link._attrs.Entries[0].push("title", "adil amanat")
+					  link._attrs[0].push("title", "adil amanat")
 					//   writer.setAttribute( 'class', imageUrl, link );
 				// 	const link = writer.createElement(`
 				// 	<p>&nbsp;</p>
@@ -238,7 +238,7 @@ class InsertImage extends Plugin {
 				// 	<h3 class="text-center">${imageUrl}</h3>
 				// 	<p>&nbsp;</p>
 				// `);
-					console.log("ssss");
+					console.log("abccccc", link._attrs);
 					console.log("abc: ", link, "selection: ",editor.model.document.selection);
                     // Insert the image in the current selection location.
                     editor.model.insertContent( link, editor.model.document.selection );
