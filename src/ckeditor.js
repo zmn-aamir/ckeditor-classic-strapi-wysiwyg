@@ -205,7 +205,14 @@ class InsertImage extends Plugin {
 					//  writer.appendText('i', link);
 
 					// const link = writer.createElement(  'p', null, [ 'foo', writer.createElement( 'img' ) ] ); 
-					const link = writer.createUIElement( 'span', { 'alignment': 'center' } );
+					// const link = writer.createAttributeElement( 'strong' );
+					// writer.createAttributeElement( 'strong', { 'alignment': 'center' } );
+					
+					// Make `<a>` element contain other attributes element so the `<a>` element is not broken.
+					const link = writer.createAttributeElement( 'a', { href: 'foo.bar' }, { priority: 5 } );
+					
+					// // Set `id` of a marker element so it is not joined or merged with "normal" elements.
+					// writer.createAttributeElement( 'span', { class: 'myMarker' }, { id: 'marker:my' } );
                     // const link = writer.createElement( 'image', {
 					// 	src: imageUrl,
 					// 	'data-mthml': "data.detail.latexFrmla",
