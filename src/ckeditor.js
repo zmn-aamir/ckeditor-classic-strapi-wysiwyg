@@ -204,20 +204,20 @@ class InsertImage extends Plugin {
 					// });
 					//  writer.appendText('i', link);
 
-					// const link = writer.createElement( document, 'p', null, [ 'foo', createElement( document, 'img' ) ] ); 
+					const link = writer.createElement( document, 'p', null, [ 'foo', createElement( document, 'img' ) ] ); 
                     // const link = writer.createElement( 'image', {
 					// 	src: imageUrl,
 					// 	'data-mthml': "data.detail.latexFrmla",
 					// } );
-					const link = writer.createText('i', {
-						linkHref: 'https://file_link',
-						attributes:{
-							linkTitle: imageUrl,
-							title: imageUrl,
-							'title': imageUrl,
-						},
-					  });
-					  writer.setAttribute( 'class', imageUrl, link );
+					// const link = writer.createText('i', {
+					// 	linkHref: 'https://file_link',
+					// 	attributes:{
+					// 		linkTitle: imageUrl,
+					// 		title: imageUrl,
+					// 		'title': imageUrl,
+					// 	},
+					//   });
+					//   writer.setAttribute( 'class', imageUrl, link );
 				// 	const link = writer.createElement(`
 				// 	<p>&nbsp;</p>
 				// 	<a
