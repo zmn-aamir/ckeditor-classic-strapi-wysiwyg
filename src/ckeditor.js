@@ -205,12 +205,7 @@ class InsertImage extends Plugin {
 					//  writer.appendText('i', link);
 
 					// const link = writer.createElement(  'p', null, [ 'foo', writer.createElement( 'img' ) ] ); 
-					const link = writer.createUIElement( 'span', null, function( domDocument ) {
-						const domElement = this.toDomElement( domDocument );
-						domElement.innerHTML = '<b>this is ui element</b>';
-					
-						return domElement;
-					} );
+					const link = writer.createUIElement( 'span', { 'alignment': 'center' } );
                     // const link = writer.createElement( 'image', {
 					// 	src: imageUrl,
 					// 	'data-mthml': "data.detail.latexFrmla",
