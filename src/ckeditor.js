@@ -204,7 +204,7 @@ class InsertImage extends Plugin {
 					// });
 					//  writer.appendText('i', link);
 
-					const link = writer.createElement( document, 'p', null, [ 'foo', createElement( document, 'img' ) ] ); 
+					const link = writer.createElement( document, 'p', null, [ 'foo', writer.createElement( document, 'img' ) ] ); 
                     // const link = writer.createElement( 'image', {
 					// 	src: imageUrl,
 					// 	'data-mthml': "data.detail.latexFrmla",
