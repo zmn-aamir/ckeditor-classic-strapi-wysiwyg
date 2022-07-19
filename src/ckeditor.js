@@ -224,21 +224,22 @@ class InsertImage extends Plugin {
 					// 	src: imageUrl,
 					// 	'data-mthml': "data.detail.latexFrmla",
 					// } );
-					// const link = writer.createText('i', {
-					// 	linkHref: 'https://file_link',
-					// 	linkTitle: imageUrl
-					//   });
-					const link = writer.createElement(`
-					<p>&nbsp;</p>
-					<a
-					href="${imageUrl}"
-					data-fancybox="group"
-					>
-						i
-					</a>
-					<h3 class="text-center">${imageUrl}</h3>
-					<p>&nbsp;</p>
-				`);
+					const link = writer.createText('i', {
+						linkHref: 'https://file_link',
+						linkTitle: imageUrl
+					  });
+					  writer.setAttribute( 'bold', true, link );
+				// 	const link = writer.createElement(`
+				// 	<p>&nbsp;</p>
+				// 	<a
+				// 	href="${imageUrl}"
+				// 	data-fancybox="group"
+				// 	>
+				// 		i
+				// 	</a>
+				// 	<h3 class="text-center">${imageUrl}</h3>
+				// 	<p>&nbsp;</p>
+				// `);
 					console.log("ssss");
 					console.log("abc: ", link, "selection: ",editor.model.document.selection);
                     // Insert the image in the current selection location.
