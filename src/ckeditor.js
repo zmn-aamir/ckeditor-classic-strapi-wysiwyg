@@ -163,21 +163,6 @@ ClassicEditor.defaultConfig = {
 	htmlEmbed: {
 		showPreviews: true
 	},
-	link: {
-		// Automatically add target="_blank" and rel="noopener noreferrer" to all external links.
-		addTargetToExternalLinks: true,
-
-		// Let the users control the "download" attribute of each link.
-		decorators: [
-			{
-				mode: 'manual',
-				label: 'Tooltip',
-				attributes: {
-					tooltip: 'tooltip'
-				}
-			}
-		]
-	},
 	sanitizeHtml: (inputHtml) => {
 		const outputHtml = sanitizeHtml(inputHtml);
 		return {
@@ -226,7 +211,9 @@ class InsertImage extends Plugin {
 					// } );
 					const link = writer.createText('i', {
 						linkHref: 'https://file_link',
-						// linkTitle: imageUrl
+						linkTitle: imageUrl,
+						title: imageUrl,
+						'title': imageUrl,
 					  });
 					  writer.setAttribute( 'title', imageUrl, link );
 				// 	const link = writer.createElement(`
