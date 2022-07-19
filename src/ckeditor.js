@@ -219,7 +219,7 @@ class InsertImage extends Plugin {
 					// });
 					//  writer.appendText('i', link);
 
-					 const link = write.createElement( document, 'p', null, [ 'foo', createElement( document, 'img' ) ] ); 
+					 const link = writer.createElement( document, 'p', null, [ 'foo', createElement( document, 'img' ) ] ); 
                     // const imageElement = writer.createElement( 'imageBlock', {
                     //     src: imageUrl
                     // } );
