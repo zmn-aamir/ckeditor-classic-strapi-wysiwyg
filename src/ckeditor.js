@@ -205,9 +205,9 @@ class InsertImage extends Plugin {
 					//  writer.appendText('i', link);
 
 					// const link = writer.createElement(  'p', null, [ 'foo', writer.createElement( 'img' ) ] ); 
-					const link = writer.createUIElement( 'a', null, function( domDocument ) {
+					const link = writer.createUIElement( 'span', null, function( domDocument ) {
 						const domElement = this.toDomElement( domDocument );
-						domElement.innerHTML = '<a title="anchor title">this is ui element</a>';
+						domElement.innerHTML = '<b>this is ui element</b>';
 					
 						return domElement;
 					} );
