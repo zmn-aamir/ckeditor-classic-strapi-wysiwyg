@@ -188,14 +188,3 @@ ClassicEditor.defaultConfig = {
 };
 
  
-ClassicEditor
-    .create(  '<p>Hello world!</p>' , {
-        plugins: [ Essentials, Paragraph, Bold, Italic ],
-        toolbar: [ 'bold', 'italic' ]
-    } )
-    .then( editor => {
-        console.log( 'Editor was initialized', editor );
-    } )
-    .catch( error => {
-        console.error( error.stack );
-    } );
