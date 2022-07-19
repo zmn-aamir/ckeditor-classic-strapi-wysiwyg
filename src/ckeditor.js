@@ -213,13 +213,13 @@ class InsertImage extends Plugin {
                 const imageUrl = prompt( 'ToolTip Text' );
 
                 editor.model.change( writer => {
-					// const link = writer.createElement('a', {
-					// 	href: '', 
-					// 	title: imageUrl
-					// });
-					//  writer.appendText('i', link);
+					const link = writer.createElement('a', {
+						href: '', 
+						title: imageUrl
+					});
+					 writer.appendText('i', link);
 
-					 const link = writer.createElement( document, 'p', null, [ 'foo', createElement( document, 'img' ) ] ); 
+					// const link = writer.createElement( document, 'p', null, [ 'foo', createElement( document, 'img' ) ] ); 
                     // const imageElement = writer.createElement( 'imageBlock', {
                     //     src: imageUrl
                     // } );
