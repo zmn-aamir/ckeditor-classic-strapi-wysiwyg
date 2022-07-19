@@ -174,7 +174,7 @@ ClassicEditor.defaultConfig = {
 
  
 ClassicEditor
-    .create( document.querySelector( '#editor' ), {
+    .create(  '<p>Hello world!</p>' , {
         plugins: [ Essentials, Paragraph, Bold, Italic ],
         toolbar: [ 'bold', 'italic' ]
     } )
