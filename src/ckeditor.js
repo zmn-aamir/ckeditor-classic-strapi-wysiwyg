@@ -192,42 +192,48 @@ class InsertImage extends Plugin {
 		// editor.conversion.attributeToAttribute({model: 'title', view: 'title'});
 		// editor.conversion.attributeToAttribute({model: {name: 'link', key: 'id'}, view: 'id'});
 
-		const linkClasses = editor.config.get('link.options.classes')
-		const defaultLinkClass = editor.config.get('link.options.defaultClass')
+		// const linkClasses = editor.config.get('link.options.classes')
+		// const defaultLinkClass = editor.config.get('link.options.defaultClass')
 
-		editor.model.schema.extend('$text', { allowAttributes: 'linkClass' })
+		// editor.model.schema.extend('$text', { allowAttributes: 'linkClass' })
 
-		editor.conversion.for('downcast').attributeToElement({
-		model: 'linkClass',
-		view: (attributeValue, writer) => writer.createAttributeElement('a', { class: attributeValue }, { priority: 5 }),
-		converterPriority: 'low'
-		})
+		// editor.conversion.for('downcast').attributeToElement({
+		// model: 'linkClass',
+		// view: (attributeValue, writer) => writer.createAttributeElement('a', { class: attributeValue }, { priority: 5 }),
+		// converterPriority: 'low'
+		// })
 
-		editor.conversion.for('upcast').attributeToAttribute({
-		view: {
-			name: 'a',
-			key: 'class'
-		},
-		model: 'linkClass',
-		converterPriority: 'low'
-		})
-		editor.conversion.for('upcast').attributeToAttribute({
-			view: {
-			  name: 'a',
-			  key: 'class'
-			},
-			model: {
-			  key: 'linkClass',
-			  value: viewElement => {
-				if(1) {
-				  return viewElement.getAttribute('class')
-				} else {
-				  return this.defaultClass
-				}
-			  }
-			},
-			converterPriority: 'low'
-		  })
+		// editor.conversion.for('upcast').attributeToAttribute({
+		// view: {
+		// 	name: 'a',
+		// 	key: 'class'
+		// },
+		// model: 'linkClass',
+		// converterPriority: 'low'
+		// })
+		// editor.conversion.for('upcast').attributeToAttribute({
+		// 	view: {
+		// 	  name: 'a',
+		// 	  key: 'class'
+		// 	},
+		// 	model: {
+		// 	  key: 'linkClass',
+		// 	  value: viewElement => {
+		// 		if(1) {
+		// 		  return viewElement.getAttribute('class')
+		// 		} else {
+		// 		  return this.defaultClass
+		// 		}
+		// 	  }
+		// 	},
+		// 	converterPriority: 'low'
+		//   })
+
+
+		editor.conversion.for( 'downcast' ).add( downcastAttributeToAttribute( {
+			model: 'test',
+			view: 'test'
+		} ) );
 
 
         editor.ui.componentFactory.add( 'insertImage', locale => {
@@ -263,17 +269,17 @@ class InsertImage extends Plugin {
 					// 	text: imageUrl,
 					// 	'data-mthml': "data.detail.latexFrmla",
 					// } );
-					const link = writer.createText('i', {
-						linkHref: 'https://file_link',
-						linkTitle: imageUrl,
-							title: imageUrl,
-							'title': imageUrl,
-							id: "anchor-abc",
-							linkClass: "aaaa",
-							'linkClass': "bbbb",
+					// const link = writer.createText('i', {
+					// 	linkHref: 'https://file_link',
+					// 	linkTitle: imageUrl,
+					// 		title: imageUrl,
+					// 		'title': imageUrl,
+					// 		id: "anchor-abc",
+					// 		linkClass: "aaaa",
+					// 		'linkClass': "bbbb",
 						
-					  });
-					  console.log("before", link._attrs);
+					//   });
+					//   console.log("before", link._attrs);
 					  //link._attrs[0].push("title", "adil amanat")
 					//   writer.setAttribute( 'class', imageUrl, link );
 				// 	const link = writer.createElement(`
@@ -287,6 +293,15 @@ class InsertImage extends Plugin {
 				// 	<h3 class="text-center">${imageUrl}</h3>
 				// 	<p>&nbsp;</p>
 				// `);
+
+					const root = editor.model.document.getRoot();
+					const p = root.getChild( 0 );
+					const link = writer.createText( 'FooBar', /*{ 'test': 3 }*/ );
+
+					writer.setAttribute( 'test', 3, p );
+					writer.insert( link, p );
+
+				
 					console.log("abccccc", link._attrs);
 					console.log("abc: ", link, "selection: ",editor.model.document.selection);
                     // Insert the image in the current selection location.
