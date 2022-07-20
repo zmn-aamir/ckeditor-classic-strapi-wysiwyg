@@ -410,14 +410,14 @@ ClassicEditor.defaultConfig = {
 //         conversion.for( 'upcast' ).elementToElement( {
 //             model: 'simpleBoxDescription',
 //             view: {
-//                 name: 'div',
+//                 name: 'a',
 //                 classes: 'simple-box-description'
 //             }
 //         } );
 //         conversion.for( 'dataDowncast' ).elementToElement( {
 //             model: 'simpleBoxDescription',
 //             view: {
-//                 name: 'div',
+//                 name: 'a',
 //                 classes: 'simple-box-description'
 //             }
 //         } );
@@ -425,9 +425,9 @@ ClassicEditor.defaultConfig = {
 //             model: 'simpleBoxDescription',
 //             view: ( modelElement, { writer: viewWriter } ) => {
 //                 // Note: You use a more specialized createEditableElement() method here.
-//                 const div = viewWriter.createEditableElement( 'div', { class: 'simple-box-description' } );
+//                 const a = viewWriter.createEditableElement( 'a', { class: 'simple-box-description' } );
 
-//                 return toWidgetEditable( div, viewWriter );
+//                 return toWidgetEditable( a, viewWriter );
 //             }
 //         } );
 //     }
@@ -597,14 +597,14 @@ class SimpleBoxEditing extends Plugin {
         conversion.for( 'upcast' ).elementToElement( {
             model: 'simpleBoxDescription',
             view: {
-                name: 'div',
+                name: 'a',
                 classes: 'simple-box-description'
             }
         } );
         conversion.for( 'dataDowncast' ).elementToElement( {
             model: 'simpleBoxDescription',
             view: {
-                name: 'div',
+                name: 'a',
                 classes: 'simple-box-description'
             }
         } );
@@ -612,9 +612,9 @@ class SimpleBoxEditing extends Plugin {
             model: 'simpleBoxDescription',
             view: ( modelElement, { writer: viewWriter } ) => {
                 // Note: You use a more specialized createEditableElement() method here.
-                const div = viewWriter.createEditableElement( 'div', { class: 'simple-box-description' } );
+                const a = viewWriter.createEditableElement( 'a', { class: 'simple-box-description' } );
 
-                return toWidgetEditable( div, viewWriter );
+                return toWidgetEditable( a, viewWriter );
             }
         } );
     }
@@ -648,7 +648,7 @@ function createSimpleBox( writer ) {
 
     // There must be at least one paragraph for the description to be editable.
     // See https://github.com/ckeditor/ckeditor5/issues/1464.
-    writer.appendElement( 'paragraph', simpleBoxDescription );
+    // writer.appendElement( 'paragraph', simpleBoxDescription );
 
     return simpleBox;
 }
