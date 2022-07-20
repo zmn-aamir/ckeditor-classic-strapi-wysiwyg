@@ -183,11 +183,11 @@ import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 class InsertImage extends Plugin {
     init() {
         const editor = this.editor;
-		// editor.model.schema.register('a', {
-        //     inheritAllFrom: '$block',
-        //     allowAttributes: ['id', 'title'],
-        //     isBlock: true,
-        // });
+		editor.model.schema.register('link', {
+            inheritAllFrom: '$block',
+            allowAttributes: ['id', 'title'],
+            isBlock: true,
+        });
 		// editor.conversion.elementToElement({model: 'link', view: 'a'});
 		// editor.conversion.attributeToAttribute({model: 'title', view: 'title'});
 		// editor.conversion.attributeToAttribute({model: {name: 'link', key: 'id'}, view: 'id'});
@@ -249,10 +249,7 @@ class InsertImage extends Plugin {
             view.on( 'execute', () => {
                 const imageUrl = prompt( 'ToolTip Text' );
 
-				editor.conversion.for( 'downcast' ).add( downcastAttributeToAttribute( {
-					model: 'test',
-					view: 'test'
-				} ) );
+				 
                 editor.model.change( writer => {
 					// const link = writer.createElement('a', {
 					// 	href: '', 
@@ -273,16 +270,16 @@ class InsertImage extends Plugin {
 					// 	text: imageUrl,
 					// 	'data-mthml': "data.detail.latexFrmla",
 					// } );
-					// const link = writer.createText('i', {
-					// 	linkHref: 'https://file_link',
-					// 	linkTitle: imageUrl,
-					// 		title: imageUrl,
-					// 		'title': imageUrl,
-					// 		id: "anchor-abc",
-					// 		linkClass: "aaaa",
-					// 		'linkClass': "bbbb",
+					const link = writer.createText('i', {
+						linkHref: 'https://file_link',
+						linkTitle: imageUrl,
+							title: imageUrl,
+							'title': imageUrl,
+							id: "anchor-abc",
+							linkClass: "aaaa",
+							'linkClass': "bbbb",
 						
-					//   });
+					  });
 					//   console.log("before", link._attrs);
 					  //link._attrs[0].push("title", "adil amanat")
 					//   writer.setAttribute( 'class', imageUrl, link );
@@ -298,12 +295,12 @@ class InsertImage extends Plugin {
 				// 	<p>&nbsp;</p>
 				// `);
 
-					const root = editor.model.document.getRoot();
-					const p = writer.createElement( 'paragraph' );
-					const link = writer.createText( 'FooBar', /*{ 'test': 3 }*/ );
+					// const root = editor.model.document.getRoot();
+					// const p = writer.createElement( 'paragraph' );
+					// const link = writer.createText( 'FooBar', /*{ 'test': 3 }*/ );
 
-					writer.setAttribute( 'test', 3, p );
-					writer.insert( link, p );
+					// writer.setAttribute( 'test', 3, p );
+					// writer.insert( link, p );
 
 				
 					console.log("abccccc", link._attrs);
