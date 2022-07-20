@@ -514,31 +514,28 @@ class SimpleBoxEditing extends Plugin {
             allowWhere: '$block'
         } );
 
-        schema.register( 'simpleBoxTitle', {
-            // Cannot be split or left by the caret.
-            isLimit: true,
-
-            allowIn: 'simpleBox',
-
-            // Allow content which is allowed in blocks (i.e. text with attributes).
-            allowContentOf: '$block'
-        } );
-
-        // schema.register( 'simpleBoxDescription', {
+        // schema.register( 'simpleBoxTitle', {
         //     // Cannot be split or left by the caret.
         //     isLimit: true,
 
         //     allowIn: 'simpleBox',
 
-        //     // Allow content which is allowed in the root (e.g. paragraphs).
-        //     allowContentOf: '$root'
+        //     // Allow content which is allowed in blocks (i.e. text with attributes).
+        //     allowContentOf: '$block'
         // } );
 
+        schema.register( 'simpleBoxDescription', {
+            // Cannot be split or left by the caret.
+            isLimit: true,
+
+            allowIn: 'simpleBox',
+
+            // Allow content which is allowed in the root (e.g. paragraphs).
+            allowContentOf: '$root'
+        } );
+
         schema.addChildCheck( ( context, childDefinition ) => {
-            // if ( context.endsWith( 'simpleBoxDescription' ) && childDefinition.name == 'simpleBox' ) {
-            //     return false;
-            // }
-			if ( childDefinition.name == 'simpleBox' ) {
+            if ( context.endsWith( 'simpleBoxDescription' ) && childDefinition.name == 'simpleBox' ) {
                 return false;
             }
         } );
@@ -571,55 +568,55 @@ class SimpleBoxEditing extends Plugin {
             }
         } );
 
-        // <simpleBoxTitle> converters
-        conversion.for( 'upcast' ).elementToElement( {
-            model: 'simpleBoxTitle',
-            view: {
-                name: 'h1',
-                classes: 'simple-box-title'
-            }
-        } );
-        conversion.for( 'dataDowncast' ).elementToElement( {
-            model: 'simpleBoxTitle',
-            view: {
-                name: 'h1',
-                classes: 'simple-box-title'
-            }
-        } );
-        conversion.for( 'editingDowncast' ).elementToElement( {
-            model: 'simpleBoxTitle',
-            view: ( modelElement, { writer: viewWriter } ) => {
-                // Note: You use a more specialized createEditableElement() method here.
-                const h1 = viewWriter.createEditableElement( 'h1', { class: 'simple-box-title' } );
-
-                return toWidgetEditable( h1, viewWriter );
-            }
-        } );
-
-        // <simpleBoxDescription> converters
+        // // <simpleBoxTitle> converters
         // conversion.for( 'upcast' ).elementToElement( {
-        //     model: 'simpleBoxDescription',
+        //     model: 'simpleBoxTitle',
         //     view: {
-        //         name: 'div',
-        //         classes: 'simple-box-description'
+        //         name: 'h1',
+        //         classes: 'simple-box-title'
         //     }
         // } );
         // conversion.for( 'dataDowncast' ).elementToElement( {
-        //     model: 'simpleBoxDescription',
+        //     model: 'simpleBoxTitle',
         //     view: {
-        //         name: 'div',
-        //         classes: 'simple-box-description'
+        //         name: 'h1',
+        //         classes: 'simple-box-title'
         //     }
         // } );
         // conversion.for( 'editingDowncast' ).elementToElement( {
-        //     model: 'simpleBoxDescription',
+        //     model: 'simpleBoxTitle',
         //     view: ( modelElement, { writer: viewWriter } ) => {
         //         // Note: You use a more specialized createEditableElement() method here.
-        //         const div = viewWriter.createEditableElement( 'div', { class: 'simple-box-description' } );
+        //         const h1 = viewWriter.createEditableElement( 'h1', { class: 'simple-box-title' } );
 
-        //         return toWidgetEditable( div, viewWriter );
+        //         return toWidgetEditable( h1, viewWriter );
         //     }
         // } );
+
+        // <simpleBoxDescription> converters
+        conversion.for( 'upcast' ).elementToElement( {
+            model: 'simpleBoxDescription',
+            view: {
+                name: 'div',
+                classes: 'simple-box-description'
+            }
+        } );
+        conversion.for( 'dataDowncast' ).elementToElement( {
+            model: 'simpleBoxDescription',
+            view: {
+                name: 'div',
+                classes: 'simple-box-description'
+            }
+        } );
+        conversion.for( 'editingDowncast' ).elementToElement( {
+            model: 'simpleBoxDescription',
+            view: ( modelElement, { writer: viewWriter } ) => {
+                // Note: You use a more specialized createEditableElement() method here.
+                const div = viewWriter.createEditableElement( 'div', { class: 'simple-box-description' } );
+
+                return toWidgetEditable( div, viewWriter );
+            }
+        } );
     }
 }
 
@@ -643,15 +640,15 @@ class InsertSimpleBoxCommand extends Command {
 
 function createSimpleBox( writer ) {
     const simpleBox = writer.createElement( 'simpleBox' );
-    const simpleBoxTitle = writer.createElement( 'simpleBoxTitle' );
-    // const simpleBoxDescription = writer.createElement( 'simpleBoxDescription' );
+    // const simpleBoxTitle = writer.createElement( 'simpleBoxTitle' );
+    const simpleBoxDescription = writer.createElement( 'simpleBoxDescription' );
 
-    writer.append( simpleBoxTitle, simpleBox );
-    // writer.append( simpleBoxDescription, simpleBox );
+    //writer.append( simpleBoxTitle, simpleBox );
+    writer.append( simpleBoxDescription, simpleBox );
 
     // There must be at least one paragraph for the description to be editable.
     // See https://github.com/ckeditor/ckeditor5/issues/1464.
-    // writer.appendElement( 'paragraph', simpleBoxDescription );
+    writer.appendElement( 'paragraph', simpleBoxDescription );
 
     return simpleBox;
 }
