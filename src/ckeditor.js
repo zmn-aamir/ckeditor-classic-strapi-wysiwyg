@@ -181,136 +181,254 @@ import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 
 class InsertImage extends Plugin {
-    init() {
-        const editor = this.editor;
-		editor.model.schema.register('link', {
-            inheritAllFrom: '$block',
-            allowAttributes: ['id', 'title'],
-            isBlock: true,
-        });
-		// editor.conversion.elementToElement({model: 'link', view: 'a'});
-		// editor.conversion.attributeToAttribute({model: 'title', view: 'title'});
-		// editor.conversion.attributeToAttribute({model: {name: 'link', key: 'id'}, view: 'id'});
+    // init() {
+    //     const editor = this.editor;
+	// 	editor.model.schema.register('link', {
+    //         inheritAllFrom: '$block',
+    //         allowAttributes: ['id', 'title'],
+    //         isBlock: true,
+    //     });
+	// 	// editor.conversion.elementToElement({model: 'link', view: 'a'});
+	// 	// editor.conversion.attributeToAttribute({model: 'title', view: 'title'});
+	// 	// editor.conversion.attributeToAttribute({model: {name: 'link', key: 'id'}, view: 'id'});
 
-		// const linkClasses = editor.config.get('link.options.classes')
-		// const defaultLinkClass = editor.config.get('link.options.defaultClass')
+	// 	// const linkClasses = editor.config.get('link.options.classes')
+	// 	// const defaultLinkClass = editor.config.get('link.options.defaultClass')
 
-		// editor.model.schema.extend('$text', { allowAttributes: 'linkClass' })
+	// 	// editor.model.schema.extend('$text', { allowAttributes: 'linkClass' })
 
-		// editor.conversion.for('downcast').attributeToElement({
-		// model: 'linkClass',
-		// view: (attributeValue, writer) => writer.createAttributeElement('a', { class: attributeValue }, { priority: 5 }),
-		// converterPriority: 'low'
-		// })
+	// 	// editor.conversion.for('downcast').attributeToElement({
+	// 	// model: 'linkClass',
+	// 	// view: (attributeValue, writer) => writer.createAttributeElement('a', { class: attributeValue }, { priority: 5 }),
+	// 	// converterPriority: 'low'
+	// 	// })
 
-		// editor.conversion.for('upcast').attributeToAttribute({
-		// view: {
-		// 	name: 'a',
-		// 	key: 'class'
-		// },
-		// model: 'linkClass',
-		// converterPriority: 'low'
-		// })
-		// editor.conversion.for('upcast').attributeToAttribute({
-		// 	view: {
-		// 	  name: 'a',
-		// 	  key: 'class'
-		// 	},
-		// 	model: {
-		// 	  key: 'linkClass',
-		// 	  value: viewElement => {
-		// 		if(1) {
-		// 		  return viewElement.getAttribute('class')
-		// 		} else {
-		// 		  return this.defaultClass
-		// 		}
-		// 	  }
-		// 	},
-		// 	converterPriority: 'low'
-		//   })
-
-
-		// editor.conversion.for( 'downcast' ).add( downcastAttributeToAttribute( {
-		// 	model: 'test',
-		// 	view: 'test'
-		// } ) );
+	// 	// editor.conversion.for('upcast').attributeToAttribute({
+	// 	// view: {
+	// 	// 	name: 'a',
+	// 	// 	key: 'class'
+	// 	// },
+	// 	// model: 'linkClass',
+	// 	// converterPriority: 'low'
+	// 	// })
+	// 	// editor.conversion.for('upcast').attributeToAttribute({
+	// 	// 	view: {
+	// 	// 	  name: 'a',
+	// 	// 	  key: 'class'
+	// 	// 	},
+	// 	// 	model: {
+	// 	// 	  key: 'linkClass',
+	// 	// 	  value: viewElement => {
+	// 	// 		if(1) {
+	// 	// 		  return viewElement.getAttribute('class')
+	// 	// 		} else {
+	// 	// 		  return this.defaultClass
+	// 	// 		}
+	// 	// 	  }
+	// 	// 	},
+	// 	// 	converterPriority: 'low'
+	// 	//   })
 
 
-        editor.ui.componentFactory.add( 'insertImage', locale => {
-            const view = new ButtonView( locale );
+	// 	// editor.conversion.for( 'downcast' ).add( downcastAttributeToAttribute( {
+	// 	// 	model: 'test',
+	// 	// 	view: 'test'
+	// 	// } ) );
 
-            view.set( {
-                label: 'Tooltip',
-                icon: imageIcon,
-                tooltip: true
-            } );
 
-            // Callback executed once the image is clicked.
-            view.on( 'execute', () => {
-                const imageUrl = prompt( 'ToolTip Text' );
+    //     editor.ui.componentFactory.add( 'insertImage', locale => {
+    //         const view = new ButtonView( locale );
+
+    //         view.set( {
+    //             label: 'Tooltip',
+    //             icon: imageIcon,
+    //             tooltip: true
+    //         } );
+
+    //         // Callback executed once the image is clicked.
+    //         view.on( 'execute', () => {
+    //             const imageUrl = prompt( 'ToolTip Text' );
 
 				 
-                editor.model.change( writer => {
-					// const link = writer.createElement('a', {
-					// 	href: '', 
-					// 	title: imageUrl
-					// });
-					//  writer.appendText('i', link);
+    //             editor.model.change( writer => {
+	// 				// const link = writer.createElement('a', {
+	// 				// 	href: '', 
+	// 				// 	title: imageUrl
+	// 				// });
+	// 				//  writer.appendText('i', link);
 
-					// const link = writer.createElement(  'p', null, [ 'foo', writer.createElement( 'img' ) ] ); 
-					// const link = writer.createAttributeElement( 'strong' );
-					// writer.createAttributeElement( 'strong', { 'alignment': 'center' } );
+	// 				// const link = writer.createElement(  'p', null, [ 'foo', writer.createElement( 'img' ) ] ); 
+	// 				// const link = writer.createAttributeElement( 'strong' );
+	// 				// writer.createAttributeElement( 'strong', { 'alignment': 'center' } );
 					
-					// Make `<a>` element contain other attributes element so the `<a>` element is not broken.
-					// const link = writer.createAttributeElement( 'a', { href: 'foo.bar' }, { priority: 5 } );
+	// 				// Make `<a>` element contain other attributes element so the `<a>` element is not broken.
+	// 				// const link = writer.createAttributeElement( 'a', { href: 'foo.bar' }, { priority: 5 } );
 					
-					// // Set `id` of a marker element so it is not joined or merged with "normal" elements.
-					// writer.createAttributeElement( 'span', { class: 'myMarker' }, { id: 'marker:my' } );
-                    // const link = writer.createElement( 'tooltip', {
-					// 	text: imageUrl,
-					// 	'data-mthml': "data.detail.latexFrmla",
-					// } );
-					const link = writer.createText('i', {
-						linkHref: 'https://file_link',
-						linkTitle: imageUrl,
-							title: imageUrl,
-							'title': imageUrl,
-							id: "anchor-abc",
-							linkClass: "aaaa",
-							'linkClass': "bbbb",
+	// 				// // Set `id` of a marker element so it is not joined or merged with "normal" elements.
+	// 				// writer.createAttributeElement( 'span', { class: 'myMarker' }, { id: 'marker:my' } );
+    //                 // const link = writer.createElement( 'tooltip', {
+	// 				// 	text: imageUrl,
+	// 				// 	'data-mthml': "data.detail.latexFrmla",
+	// 				// } );
+	// 				const link = writer.createText('i', {
+	// 					linkHref: 'https://file_link',
+	// 					linkTitle: imageUrl,
+	// 						title: imageUrl,
+	// 						'title': imageUrl,
+	// 						id: "anchor-abc",
+	// 						linkClass: "aaaa",
+	// 						'linkClass': "bbbb",
 						
-					  });
-					//   console.log("before", link._attrs);
-					  //link._attrs[0].push("title", "adil amanat")
-					//   writer.setAttribute( 'class', imageUrl, link );
-				// 	const link = writer.createElement(`
-				// 	<p>&nbsp;</p>
-				// 	<a
-				// 	href="${imageUrl}"
-				// 	data-fancybox="group"
-				// 	>
-				// 		i
-				// 	</a>
-				// 	<h3 class="text-center">${imageUrl}</h3>
-				// 	<p>&nbsp;</p>
-				// `);
+	// 				  });
+	// 				//   console.log("before", link._attrs);
+	// 				  //link._attrs[0].push("title", "adil amanat")
+	// 				//   writer.setAttribute( 'class', imageUrl, link );
+	// 			// 	const link = writer.createElement(`
+	// 			// 	<p>&nbsp;</p>
+	// 			// 	<a
+	// 			// 	href="${imageUrl}"
+	// 			// 	data-fancybox="group"
+	// 			// 	>
+	// 			// 		i
+	// 			// 	</a>
+	// 			// 	<h3 class="text-center">${imageUrl}</h3>
+	// 			// 	<p>&nbsp;</p>
+	// 			// `);
 
-					// const root = editor.model.document.getRoot();
-					// const p = writer.createElement( 'paragraph' );
-					// const link = writer.createText( 'FooBar', /*{ 'test': 3 }*/ );
+	// 				// const root = editor.model.document.getRoot();
+	// 				// const p = writer.createElement( 'paragraph' );
+	// 				// const link = writer.createText( 'FooBar', /*{ 'test': 3 }*/ );
 
-					// writer.setAttribute( 'test', 3, p );
-					// writer.insert( link, p );
+	// 				// writer.setAttribute( 'test', 3, p );
+	// 				// writer.insert( link, p );
 
 				
-					console.log("abccccc", link._attrs);
-					console.log("abc: ", link, "selection: ",editor.model.document.selection);
-                    // Insert the image in the current selection location.
-                    editor.model.insertContent( link, editor.model.document.selection );
-                } );
-            } );
+	// 				console.log("abccccc", link._attrs);
+	// 				console.log("abc: ", link, "selection: ",editor.model.document.selection);
+    //                 // Insert the image in the current selection location.
+    //                 editor.model.insertContent( link, editor.model.document.selection );
+    //             } );
+    //         } );
 
-            return view;
+    //         return view;
+    //     } );
+    // }
+
+	init() {
+        console.log( 'SimpleBoxEditing#init() got called' );
+
+        this._defineSchema();
+        this._defineConverters();                                              // ADDED
+    }
+
+	_defineSchema() {                                                          // ADDED
+        const schema = this.editor.model.schema;
+
+        schema.register( 'simpleBox', {
+            // Behaves like a self-contained object (e.g. an image).
+            isObject: true,
+
+            // Allow in places where other blocks are allowed (e.g. directly in the root).
+            allowWhere: '$block'
+        } );
+
+        schema.register( 'simpleBoxTitle', {
+            // Cannot be split or left by the caret.
+            isLimit: true,
+
+            allowIn: 'simpleBox',
+
+            // Allow content which is allowed in blocks (i.e. text with attributes).
+            allowContentOf: '$block'
+        } );
+
+        schema.register( 'simpleBoxDescription', {
+            // Cannot be split or left by the caret.
+            isLimit: true,
+
+            allowIn: 'simpleBox',
+
+            // Allow content which is allowed in the root (e.g. paragraphs).
+            allowContentOf: '$root'
+        } );
+    }
+
+
+    _defineConverters() {                                                      // MODIFIED
+        const conversion = this.editor.conversion;
+
+        // <simpleBox> converters
+        conversion.for( 'upcast' ).elementToElement( {
+            model: 'simpleBox',
+            view: {
+                name: 'section',
+                classes: 'simple-box'
+            }
+        } );
+        conversion.for( 'dataDowncast' ).elementToElement( {
+            model: 'simpleBox',
+            view: {
+                name: 'section',
+                classes: 'simple-box'
+            }
+        } );
+        conversion.for( 'editingDowncast' ).elementToElement( {
+            model: 'simpleBox',
+            view: ( modelElement, { writer: viewWriter } ) => {
+                const section = viewWriter.createContainerElement( 'section', { class: 'simple-box' } );
+
+                return toWidget( section, viewWriter, { label: 'simple box widget' } );
+            }
+        } );
+
+        // <simpleBoxTitle> converters
+        conversion.for( 'upcast' ).elementToElement( {
+            model: 'simpleBoxTitle',
+            view: {
+                name: 'h1',
+                classes: 'simple-box-title'
+            }
+        } );
+        conversion.for( 'dataDowncast' ).elementToElement( {
+            model: 'simpleBoxTitle',
+            view: {
+                name: 'h1',
+                classes: 'simple-box-title'
+            }
+        } );
+        conversion.for( 'editingDowncast' ).elementToElement( {
+            model: 'simpleBoxTitle',
+            view: ( modelElement, { writer: viewWriter } ) => {
+                // Note: You use a more specialized createEditableElement() method here.
+                const h1 = viewWriter.createEditableElement( 'h1', { class: 'simple-box-title' } );
+
+                return toWidgetEditable( h1, viewWriter );
+            }
+        } );
+
+        // <simpleBoxDescription> converters
+        conversion.for( 'upcast' ).elementToElement( {
+            model: 'simpleBoxDescription',
+            view: {
+                name: 'div',
+                classes: 'simple-box-description'
+            }
+        } );
+        conversion.for( 'dataDowncast' ).elementToElement( {
+            model: 'simpleBoxDescription',
+            view: {
+                name: 'div',
+                classes: 'simple-box-description'
+            }
+        } );
+        conversion.for( 'editingDowncast' ).elementToElement( {
+            model: 'simpleBoxDescription',
+            view: ( modelElement, { writer: viewWriter } ) => {
+                // Note: You use a more specialized createEditableElement() method here.
+                const div = viewWriter.createEditableElement( 'div', { class: 'simple-box-description' } );
+
+                return toWidgetEditable( div, viewWriter );
+            }
         } );
     }
 }
