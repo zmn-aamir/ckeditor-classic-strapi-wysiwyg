@@ -219,7 +219,7 @@ class InsertImage extends Plugin {
 			model: {
 			  key: 'linkClass',
 			  value: viewElement => {
-				if(this.classes.includes(viewElement.getAttribute('class'))) {
+				if(this.classes.hasClass(viewElement.getAttribute('class'))) {
 				  return viewElement.getAttribute('class')
 				} else {
 				  return this.defaultClass
