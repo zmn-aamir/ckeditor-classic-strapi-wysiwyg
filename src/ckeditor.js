@@ -188,9 +188,9 @@ class InsertImage extends Plugin {
             allowAttributes: ['id', 'title'],
             isBlock: true,
         });
-		editor.conversion.elementToElement({model: 'a', view: 'a'});
+		editor.conversion.elementToElement({model: 'link', view: 'a'});
 		editor.conversion.attributeToAttribute({model: 'title', view: 'title'});
-		editor.conversion.attributeToAttribute({model: {name: 'a', key: 'id'}, view: 'id'});
+		editor.conversion.attributeToAttribute({model: {name: 'link', key: 'id'}, view: 'id'});
 
         editor.ui.componentFactory.add( 'insertImage', locale => {
             const view = new ButtonView( locale );
