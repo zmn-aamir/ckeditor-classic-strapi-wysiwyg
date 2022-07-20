@@ -362,20 +362,20 @@ ClassicEditor.defaultConfig = {
 //             model: 'simpleBox',
 //             view: {
 //                 name: 'section',
-//                 classes: 'simple-box'
+//                 classes: 'tooltip-box'
 //             }
 //         } );
 //         conversion.for( 'dataDowncast' ).elementToElement( {
 //             model: 'simpleBox',
 //             view: {
 //                 name: 'section',
-//                 classes: 'simple-box'
+//                 classes: 'tooltip-box'
 //             }
 //         } );
 //         conversion.for( 'editingDowncast' ).elementToElement( {
 //             model: 'simpleBox',
 //             view: ( modelElement, { writer: viewWriter } ) => {
-//                 const section = viewWriter.createContainerElement( 'section', { class: 'simple-box' } );
+//                 const section = viewWriter.createContainerElement( 'section', { class: 'tooltip-box' } );
 
 //                 return toWidget( section, viewWriter, { label: 'simple box widget' } );
 //             }
@@ -386,21 +386,21 @@ ClassicEditor.defaultConfig = {
 //             model: 'simpleBoxTitle',
 //             view: {
 //                 name: 'h4',
-//                 classes: 'simple-box-title'
+//                 classes: 'tooltip-box-title'
 //             }
 //         } );
 //         conversion.for( 'dataDowncast' ).elementToElement( {
 //             model: 'simpleBoxTitle',
 //             view: {
 //                 name: 'h4',
-//                 classes: 'simple-box-title'
+//                 classes: 'tooltip-box-title'
 //             }
 //         } );
 //         conversion.for( 'editingDowncast' ).elementToElement( {
 //             model: 'simpleBoxTitle',
 //             view: ( modelElement, { writer: viewWriter } ) => {
 //                 // Note: You use a more specialized createEditableElement() method here.
-//                 const h4 = viewWriter.createEditableElement( 'h4', { class: 'simple-box-title' } );
+//                 const h4 = viewWriter.createEditableElement( 'h4', { class: 'tooltip-box-title' } );
 
 //                 return toWidgetEditable( h4, viewWriter );
 //             }
@@ -411,21 +411,21 @@ ClassicEditor.defaultConfig = {
 //             model: 'simpleBoxDescription',
 //             view: {
 //                 name: 'a',
-//                 classes: 'simple-box-description'
+//                 classes: 'tooltip-box-description'
 //             }
 //         } );
 //         conversion.for( 'dataDowncast' ).elementToElement( {
 //             model: 'simpleBoxDescription',
 //             view: {
 //                 name: 'a',
-//                 classes: 'simple-box-description'
+//                 classes: 'tooltip-box-description'
 //             }
 //         } );
 //         conversion.for( 'editingDowncast' ).elementToElement( {
 //             model: 'simpleBoxDescription',
 //             view: ( modelElement, { writer: viewWriter } ) => {
 //                 // Note: You use a more specialized createEditableElement() method here.
-//                 const a = viewWriter.createEditableElement( 'a', { class: 'simple-box-description' } );
+//                 const a = viewWriter.createEditableElement( 'a', { class: 'tooltip-box-description' } );
 
 //                 return toWidgetEditable( a, viewWriter );
 //             }
@@ -549,20 +549,20 @@ class SimpleBoxEditing extends Plugin {
             model: 'simpleBox',
             view: {
                 name: 'section',
-                classes: 'simple-box'
+                classes: 'tooltip-box'
             }
         } );
         conversion.for( 'dataDowncast' ).elementToElement( {
             model: 'simpleBox',
             view: {
                 name: 'section',
-                classes: 'simple-box'
+                classes: 'tooltip-box'
             }
         } );
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleBox',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createContainerElement( 'section', { class: 'simple-box' } );
+                const section = viewWriter.createContainerElement( 'section', { class: 'tooltip-box' } );
 
                 return toWidget( section, viewWriter, { label: 'simple box widget' } );
             }
@@ -573,21 +573,21 @@ class SimpleBoxEditing extends Plugin {
         //     model: 'simpleBoxTitle',
         //     view: {
         //         name: 'h1',
-        //         classes: 'simple-box-title'
+        //         classes: 'tooltip-box-title'
         //     }
         // } );
         // conversion.for( 'dataDowncast' ).elementToElement( {
         //     model: 'simpleBoxTitle',
         //     view: {
         //         name: 'h1',
-        //         classes: 'simple-box-title'
+        //         classes: 'tooltip-box-title'
         //     }
         // } );
         // conversion.for( 'editingDowncast' ).elementToElement( {
         //     model: 'simpleBoxTitle',
         //     view: ( modelElement, { writer: viewWriter } ) => {
         //         // Note: You use a more specialized createEditableElement() method here.
-        //         const h1 = viewWriter.createEditableElement( 'h1', { class: 'simple-box-title' } );
+        //         const h1 = viewWriter.createEditableElement( 'h1', { class: 'tooltip-box-title' } );
 
         //         return toWidgetEditable( h1, viewWriter );
         //     }
@@ -598,21 +598,21 @@ class SimpleBoxEditing extends Plugin {
             model: 'simpleBoxDescription',
             view: {
                 name: 'a',
-                classes: 'simple-box-description'
+                title: 'tooltip-box-description'
             }
         } );
         conversion.for( 'dataDowncast' ).elementToElement( {
             model: 'simpleBoxDescription',
             view: {
                 name: 'a',
-                classes: 'simple-box-description'
+                title: 'tooltip-box-description'
             }
         } );
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleBoxDescription',
             view: ( modelElement, { writer: viewWriter } ) => {
                 // Note: You use a more specialized createEditableElement() method here.
-                const a = viewWriter.createEditableElement( 'a', { class: 'simple-box-description' } );
+                const a = viewWriter.createEditableElement( 'a', { title: 'tooltip-box-description' } );
 
                 return toWidgetEditable( a, viewWriter );
             }
