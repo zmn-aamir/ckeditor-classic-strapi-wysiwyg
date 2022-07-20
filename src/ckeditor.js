@@ -183,14 +183,52 @@ import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 class InsertImage extends Plugin {
     init() {
         const editor = this.editor;
-		editor.model.schema.register('a', {
-            inheritAllFrom: '$block',
-            allowAttributes: ['id', 'title'],
-            isBlock: true,
-        });
-		editor.conversion.elementToElement({model: 'link', view: 'a'});
-		editor.conversion.attributeToAttribute({model: 'title', view: 'title'});
-		editor.conversion.attributeToAttribute({model: {name: 'link', key: 'id'}, view: 'id'});
+		// editor.model.schema.register('a', {
+        //     inheritAllFrom: '$block',
+        //     allowAttributes: ['id', 'title'],
+        //     isBlock: true,
+        // });
+		// editor.conversion.elementToElement({model: 'link', view: 'a'});
+		// editor.conversion.attributeToAttribute({model: 'title', view: 'title'});
+		// editor.conversion.attributeToAttribute({model: {name: 'link', key: 'id'}, view: 'id'});
+
+		const linkClasses = editor.config.get('link.options.classes')
+		const defaultLinkClass = editor.config.get('link.options.defaultClass')
+
+		editor.model.schema.extend('$text', { allowAttributes: 'linkClass' })
+
+		editor.conversion.for('downcast').attributeToElement({
+		model: 'linkClass',
+		view: (attributeValue, writer) => writer.createAttributeElement('a', { class: attributeValue }, { priority: 5 }),
+		converterPriority: 'low'
+		})
+
+		editor.conversion.for('upcast').attributeToAttribute({
+		view: {
+			name: 'a',
+			key: 'class'
+		},
+		model: 'linkClass',
+		converterPriority: 'low'
+		})
+		editor.conversion.for('upcast').attributeToAttribute({
+			view: {
+			  name: 'a',
+			  key: 'class'
+			},
+			model: {
+			  key: 'linkClass',
+			  value: viewElement => {
+				if(this.classes.includes(viewElement.getAttribute('class'))) {
+				  return viewElement.getAttribute('class')
+				} else {
+				  return this.defaultClass
+				}
+			  }
+			},
+			converterPriority: 'low'
+		  })
+
 
         editor.ui.componentFactory.add( 'insertImage', locale => {
             const view = new ButtonView( locale );
@@ -230,7 +268,9 @@ class InsertImage extends Plugin {
 						linkTitle: imageUrl,
 							title: imageUrl,
 							'title': imageUrl,
-							id: "anchor-abc"
+							id: "anchor-abc",
+							linkClass: "aaaa",
+							'linkClass': "bbbb",
 						
 					  });
 					  console.log("before", link._attrs);
