@@ -361,23 +361,23 @@ ClassicEditor.defaultConfig = {
 //         conversion.for( 'upcast' ).elementToElement( {
 //             model: 'simpleBox',
 //             view: {
-//                 name: 'section',
+//                 name: 'p',
 //                 classes: 'tooltip-box'
 //             }
 //         } );
 //         conversion.for( 'dataDowncast' ).elementToElement( {
 //             model: 'simpleBox',
 //             view: {
-//                 name: 'section',
+//                 name: 'p',
 //                 classes: 'tooltip-box'
 //             }
 //         } );
 //         conversion.for( 'editingDowncast' ).elementToElement( {
 //             model: 'simpleBox',
 //             view: ( modelElement, { writer: viewWriter } ) => {
-//                 const section = viewWriter.createContainerElement( 'section', { class: 'tooltip-box' } );
+//                 const p = viewWriter.createContainerElement( 'p', { class: 'tooltip-box' } );
 
-//                 return toWidget( section, viewWriter, { label: 'simple box widget' } );
+//                 return toWidget( p, viewWriter, { label: 'simple box widget' } );
 //             }
 //         } );
 
@@ -548,23 +548,23 @@ class SimpleBoxEditing extends Plugin {
         conversion.for( 'upcast' ).elementToElement( {
             model: 'simpleBox',
             view: {
-                name: 'section',
+                name: 'p',
                 classes: 'tooltip-box'
             }
         } );
         conversion.for( 'dataDowncast' ).elementToElement( {
             model: 'simpleBox',
             view: {
-                name: 'section',
+                name: 'p',
                 classes: 'tooltip-box'
             }
         } );
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleBox',
             view: ( modelElement, { writer: viewWriter } ) => {
-                const section = viewWriter.createContainerElement( 'section', { class: 'tooltip-box' } );
+                const p = viewWriter.createContainerElement( 'p', { class: 'tooltip-box' } );
 
-                return toWidget( section, viewWriter, { label: 'simple box widget' } );
+                return toWidget( p, viewWriter, { label: 'simple box widget' } );
             }
         } );
 
@@ -639,12 +639,12 @@ class InsertSimpleBoxCommand extends Command {
 }
 
 function createSimpleBox( writer ) {
-    //const simpleBox = writer.createElement( 'simpleBox' );
+    const simpleBox = writer.createElement( 'simpleBox' );
     // const simpleBoxTitle = writer.createElement( 'simpleBoxTitle' );
     const simpleBoxDescription = writer.createElement( 'simpleBoxDescription' );
 
     //writer.append( simpleBoxTitle, simpleBox );
-    writer.append( simpleBoxDescription, "p" );
+    writer.append( simpleBoxDescription, simpleBox );
 
     // There must be at least one paragraph for the description to be editable.
     // See https://github.com/ckeditor/ckeditor5/issues/1464.
