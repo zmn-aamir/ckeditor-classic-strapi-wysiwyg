@@ -325,21 +325,21 @@ class InsertImage extends Plugin {
         } );
 
 		// <simpleBoxDescription> converters
-        conversion.for( 'upcast' ).elementToElement( {
+        editor.conversion.for( 'upcast' ).elementToElement( {
             model: 'a',
             view: {
                 name: 'a',
                 title: 'tooltip-box-description'
             }
         } );
-        conversion.for( 'dataDowncast' ).elementToElement( {
+        editor.conversion.for( 'dataDowncast' ).elementToElement( {
             model: 'a',
             view: {
                 name: 'a',
                 title: 'tooltip-box-description'
             }
         } );
-        conversion.for( 'editingDowncast' ).elementToElement( {
+        editor.conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'a',
             view: ( modelElement, { writer: viewWriter } ) => {
                 // Note: You use a more specialized createEditableElement() method here.
