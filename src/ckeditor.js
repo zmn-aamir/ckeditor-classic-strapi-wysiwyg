@@ -249,6 +249,10 @@ class InsertImage extends Plugin {
             view.on( 'execute', () => {
                 const imageUrl = prompt( 'ToolTip Text' );
 
+				editor.conversion.for( 'downcast' ).add( downcastAttributeToAttribute( {
+					model: 'test',
+					view: 'test'
+				} ) );
                 editor.model.change( writer => {
 					// const link = writer.createElement('a', {
 					// 	href: '', 
