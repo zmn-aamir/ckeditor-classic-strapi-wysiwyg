@@ -183,6 +183,14 @@ import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 class InsertImage extends Plugin {
     init() {
         const editor = this.editor;
+		editor.model.schema.register('a', {
+            inheritAllFrom: '$block',
+            allowAttributes: ['id', 'title'],
+            isBlock: true,
+        });
+		editor.conversion.elementToElement({model: 'a', view: 'a'});
+		editor.conversion.attributeToAttribute({model: 'title', view: 'title'});
+		editor.conversion.attributeToAttribute({model: {name: 'a', key: 'id'}, view: 'id'});
 
         editor.ui.componentFactory.add( 'insertImage', locale => {
             const view = new ButtonView( locale );
@@ -213,17 +221,18 @@ class InsertImage extends Plugin {
 					
 					// // Set `id` of a marker element so it is not joined or merged with "normal" elements.
 					// writer.createAttributeElement( 'span', { class: 'myMarker' }, { id: 'marker:my' } );
-                    const link = writer.createElement( 'tooltip', {
-						text: imageUrl,
-						'data-mthml': "data.detail.latexFrmla",
-					} );
-					// const link = writer.createText('i', {
-					// 	linkHref: 'https://file_link',
-					// 	linkTitle: imageUrl,
-					// 		title: imageUrl,
-					// 		'title': imageUrl,
+                    // const link = writer.createElement( 'tooltip', {
+					// 	text: imageUrl,
+					// 	'data-mthml': "data.detail.latexFrmla",
+					// } );
+					const link = writer.createText('i', {
+						linkHref: 'https://file_link',
+						linkTitle: imageUrl,
+							title: imageUrl,
+							'title': imageUrl,
+							id: "anchor-abc"
 						
-					//   });
+					  });
 					  console.log("before", link._attrs);
 					  //link._attrs[0].push("title", "adil amanat")
 					//   writer.setAttribute( 'class', imageUrl, link );
