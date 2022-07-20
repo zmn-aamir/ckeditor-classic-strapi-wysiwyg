@@ -230,10 +230,10 @@ class InsertImage extends Plugin {
 		//   })
 
 
-		editor.conversion.for( 'downcast' ).add( downcastAttributeToAttribute( {
-			model: 'test',
-			view: 'test'
-		} ) );
+		// editor.conversion.for( 'downcast' ).add( downcastAttributeToAttribute( {
+		// 	model: 'test',
+		// 	view: 'test'
+		// } ) );
 
 
         editor.ui.componentFactory.add( 'insertImage', locale => {
