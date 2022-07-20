@@ -440,9 +440,11 @@ class SimpleBoxEditing extends Plugin {
         } );
     }
 
+	
     _defineConverters() {
+		
         const conversion = this.editor.conversion;
-
+		const tooltip_text = prompt( 'ToolTip Text' );
         // <simpleBox> converters
         conversion.for( 'upcast' ).elementToElement( {
             model: 'simpleBox',
@@ -471,21 +473,21 @@ class SimpleBoxEditing extends Plugin {
             model: 'simpleBoxDescription',
             view: {
                 name: 'a',
-                title: 'tooltip-box-description'
+                title: "tooltip_text"
             }
         } );
         conversion.for( 'dataDowncast' ).elementToElement( {
             model: 'simpleBoxDescription',
             view: {
                 name: 'a',
-                title: 'tooltip-box-description'
+                title: "tooltip_text111"
             }
         } );
         conversion.for( 'editingDowncast' ).elementToElement( {
             model: 'simpleBoxDescription',
             view: ( modelElement, { writer: viewWriter } ) => {
                 // Note: You use a more specialized createEditableElement() method here.
-                const a = viewWriter.createEditableElement( 'a', { title: 'tooltip-box-description' } );
+                const a = viewWriter.createEditableElement( 'a', { title: tooltip_text } );
 
                 return toWidgetEditable( a, viewWriter );
             }
