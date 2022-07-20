@@ -295,7 +295,7 @@ class InsertImage extends Plugin {
 				// `);
 
 					const root = editor.model.document.getRoot();
-					const p = root.getChild( 0 );
+					const p = writer.createElement( 'paragraph' );
 					const link = writer.createText( 'FooBar', /*{ 'test': 3 }*/ );
 
 					writer.setAttribute( 'test', 3, p );
