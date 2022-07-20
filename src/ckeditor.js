@@ -73,7 +73,7 @@ ClassicEditor.builtinPlugins = [
 	TableToolbar,
 	TableProperties,
 	TableCellProperties, 
-	InsertImage,
+	SimpleBox,
 ];
 
 // Editor configuration.
