@@ -179,15 +179,26 @@ ClassicEditor.defaultConfig = {
 import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
+import { toWidget, toWidgetEditable } from '@ckeditor/ckeditor5-widget/src/utils';
 
 class InsertImage extends Plugin {
     init() {
         const editor = this.editor;
-		editor.model.schema.register('link', {
-            inheritAllFrom: '$block',
-            allowAttributes: ['id', 'title'],
-            isBlock: true,
-        });
+		// editor.model.schema.register('link', {
+        //     inheritAllFrom: '$block',
+        //     allowAttributes: ['id', 'title'],
+        //     isBlock: true,
+        // });
+
+		editor.model.schema.register( 'a', {
+			// Cannot be split or left by the caret.
+			isLimit: true,
+
+			//allowIn: 'simpleBox',
+
+			// Allow content which is allowed in the root (e.g. paragraphs).
+			allowContentOf: '$root'
+		} );
 		// editor.conversion.elementToElement({model: 'link', view: 'a'});
 		// editor.conversion.attributeToAttribute({model: 'title', view: 'title'});
 		// editor.conversion.attributeToAttribute({model: {name: 'link', key: 'id'}, view: 'id'});
@@ -311,6 +322,31 @@ class InsertImage extends Plugin {
             } );
 
             return view;
+        } );
+
+		// <simpleBoxDescription> converters
+        conversion.for( 'upcast' ).elementToElement( {
+            model: 'a',
+            view: {
+                name: 'a',
+                title: 'tooltip-box-description'
+            }
+        } );
+        conversion.for( 'dataDowncast' ).elementToElement( {
+            model: 'a',
+            view: {
+                name: 'a',
+                title: 'tooltip-box-description'
+            }
+        } );
+        conversion.for( 'editingDowncast' ).elementToElement( {
+            model: 'a',
+            view: ( modelElement, { writer: viewWriter } ) => {
+                // Note: You use a more specialized createEditableElement() method here.
+                const a = viewWriter.createEditableElement( 'a', { title: 'tooltip-box-description' } );
+
+                return toWidgetEditable( a, viewWriter );
+            }
         } );
     }
 }
