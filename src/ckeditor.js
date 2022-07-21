@@ -277,20 +277,21 @@ class InsertToolTip extends Plugin {
 					
 					// // Set `id` of a marker element so it is not joined or merged with "normal" elements.
 					// writer.createAttributeElement( 'span', { class: 'myMarker' }, { id: 'marker:my' } );
-                    // const link = writer.createElement( 'tooltip', {
-					// 	text: imageUrl,
-					// 	'data-mthml': "data.detail.latexFrmla",
-					// } );
-					const link = writer.createText('i', {
-						linkHref: 'https://file_link',
-						linkTitle: imageUrl,
-							title: imageUrl,
-							'title': imageUrl,
-							id: "anchor-abc",
-							linkClass: "aaaa",
-							'linkClass': "bbbb",
+                    const link = writer.createElement( 'image', {
+						src: "i",
+						alt: imageUrl,
+						'data-mthml': "data.detail.latexFrmla",
+					} );
+					// const link = writer.createText('i', {
+					// 	linkHref: 'https://file_link',
+					// 	linkTitle: imageUrl,
+					// 		title: imageUrl,
+					// 		'title': imageUrl,
+					// 		id: "anchor-abc",
+					// 		linkClass: "aaaa",
+					// 		'linkClass': "bbbb",
 						
-					  });
+					//   });
 					//   console.log("before", link._attrs);
 					  //link._attrs[0].push("title", "adil amanat")
 					//   writer.setAttribute( 'class', imageUrl, link );
