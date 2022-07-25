@@ -249,12 +249,12 @@ class InsertToolTip extends Plugin {
             view.on( 'execute', () => {
                 const imageUrl = prompt( 'ToolTip Text' );
                 editor.model.change( writer => {
-                    // const link = writer.createElement( 'image', {
-					// 	src: "i",
-					// 	alt: imageUrl,
-					// } );
-                    // // Insert the image in the current selection location.
-                    // editor.model.insertContent( link, editor.model.document.selection );
+                    const link = writer.createElement( 'image', {
+						src: "i",
+						alt: imageUrl,
+					} );
+                    // Insert the image in the current selection location.
+                    editor.model.insertContent( link, editor.model.document.selection );
 
 
 
@@ -279,16 +279,16 @@ class InsertToolTip extends Plugin {
 					// 	alt: imageUrl,
 					// 	'data-mthml': "data.detail.latexFrmla",
 					// } );
-					const link = writer.createText('image', {
-						linkHref: 'https://file_link',
-						linkTitle: imageUrl,
-							title: imageUrl,
-							'title': imageUrl,
-							id: "anchor-abc",
-							linkClass: "aaaa",
-							'linkClass': "bbbb",
+					// const link = writer.createText('image', {
+					// 	linkHref: 'https://file_link',
+					// 	linkTitle: imageUrl,
+					// 		title: imageUrl,
+					// 		'title': imageUrl,
+					// 		id: "anchor-abc",
+					// 		linkClass: "aaaa",
+					// 		'linkClass': "bbbb",
 						
-					  });
+					//   });
 					//   console.log("before", link._attrs);
 					  //link._attrs[0].push("title", "adil amanat")
 					//   writer.setAttribute( 'class', imageUrl, link );
