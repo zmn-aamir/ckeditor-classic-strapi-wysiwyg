@@ -147,6 +147,58 @@ ClassicEditor.defaultConfig = {
 	// 		'linkImage',
 	// 	]
 	// },
+	image: {
+		styles: {
+			// Defining custom styling options for the images.
+			options: [ {
+				name: 'side',
+				icon: sideIcon,
+				title: 'Side image',
+				className: 'image-side',
+				modelElements: [ 'imageBlock' ]
+			}, {
+				name: 'margin-left',
+				icon: leftIcon,
+				title: 'Image on left margin',
+				className: 'image-margin-left',
+				modelElements: [ 'imageInline' ]
+			}, {
+				name: 'margin-right',
+				icon: rightIcon,
+				title: 'Image on right margin',
+				className: 'image-margin-right',
+				modelElements: [ 'imageInline' ]
+			},
+			// Modifying icons and titles of the default inline and
+			// block image styles to reflect its real appearance.
+			{
+				name: 'inline',
+				icon: inlineIcon
+			}, {
+				name: 'block',
+				title: 'Centered image',
+				icon: centerIcon
+			} ]
+		},
+		toolbar: [ {
+			// Grouping the buttons for the icon-like image styling
+			// into one drop-down.
+			name: 'imageStyle:icons',
+			items: [
+				'imageStyle:margin-left',
+				'imageStyle:margin-right',
+				'imageStyle:inline'
+			],
+			defaultItem: 'imageStyle:margin-left'
+		}, {
+			// Grouping the buttons for the regular
+			// picture-like image styling into one drop-down.
+			name: 'imageStyle:pictures',
+			items: [ 'imageStyle:block', 'imageStyle:side' ],
+			defaultItem: 'imageStyle:block'
+		}, '|', 'linkImage'
+		]
+	},
 	table: {
 		contentToolbar: [
 			'tableColumn',
