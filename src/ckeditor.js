@@ -310,7 +310,7 @@ class InsertToolTip extends Plugin {
 
 					// writer.setAttribute( 'test', 3, p );
 					// writer.insert( link, p );
-					editor.model.insertContent( link, editor.model.document.selection );
+					// editor.model.insertContent( link, editor.model.document.selection );
 
                 } );
             } );
