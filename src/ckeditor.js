@@ -195,7 +195,7 @@ class InsertToolTip extends Plugin {
             view.on( 'execute', () => {
                 const imageUrl = prompt( 'ToolTip Text' );
                 editor.model.change( writer => {
-                    const link = writer.createElement( 'image', {
+                    const link = writer.createText( 'image', {
 						src: "i",
 						alt: imageUrl,
 					} );
