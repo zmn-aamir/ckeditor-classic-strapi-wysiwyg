@@ -221,14 +221,16 @@ ClassicEditor.defaultConfig = {
 		showPreviews: true
 	},
 	sanitizeHtml: (inputHtml) => {
-		const outputHtml = sanitizeHtml(inputHtml);
+		const outputHtml = inputHtml; //sanitizeHtml(inputHtml);
 		return {
 			html: outputHtml,
 			hasChanged: true
 		};
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en'
+	language: 'en',
+	extraAllowedContent: 'figcaption'
+
 };
 
 class InsertToolTip extends Plugin {
