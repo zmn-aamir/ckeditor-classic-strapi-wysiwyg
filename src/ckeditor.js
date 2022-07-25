@@ -220,11 +220,11 @@ class InsertToolTip extends Plugin {
 					
 					// // Set `id` of a marker element so it is not joined or merged with "normal" elements.
 					// writer.createAttributeElement( 'span', { class: 'myMarker' }, { id: 'marker:my' } );
-                    // const link = writer.createElement( 'image', {
-					// 	src: "i",
-					// 	alt: imageUrl,
-					// 	'data-mthml': "data.detail.latexFrmla",
-					// } );
+                    const link = writer.createElement( 'LinkImage', {
+						src: "i",
+						alt: imageUrl,
+						'data-mthml': "data.detail.latexFrmla",
+					} );
 					// const link = writer.createText('i', {
 					// 	linkHref: 'https://file_link',
 					// 	linkTitle: imageUrl,
@@ -250,12 +250,12 @@ class InsertToolTip extends Plugin {
 				// 	<p>&nbsp;</p>
 				// `);
 
-					const root = editor.model.document.getRoot();
-					const p = writer.createElement( 'paragraph' );
-					const link = writer.createText( 'FooBar', /*{ 'test': 3 }*/ );
+					// const root = editor.model.document.getRoot();
+					// const p = writer.createElement( 'paragraph' );
+					// const link = writer.createText( 'FooBar', /*{ 'test': 3 }*/ );
 
-					writer.setAttribute( 'test', 3, p );
-					writer.insert( link, p );
+					// writer.setAttribute( 'test', 3, p );
+					// writer.insert( link, p );
 					editor.model.insertContent( link, editor.model.document.selection );
 
                 } );
