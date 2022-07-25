@@ -195,14 +195,69 @@ class InsertToolTip extends Plugin {
             view.on( 'execute', () => {
                 const imageUrl = prompt( 'ToolTip Text' );
                 editor.model.change( writer => {
-                    const link = writer.createElement( 'link', {
-						href: "i",
-						//alt: imageUrl,
-						'data-text': imageUrl,
-					} );
-					console.log("link: ", link);
-                    // Insert the image in the current selection location.
-                    editor.model.insertContent( link, editor.model.document.selection );
+                    // const link = writer.createElement( 'image', {
+					// 	src: "i",
+					// 	alt: imageUrl,
+					// } );
+                    // // Insert the image in the current selection location.
+                    // editor.model.insertContent( link, editor.model.document.selection );
+
+
+
+
+					// const link = writer.createElement('a', {
+					// 	href: '', 
+					// 	title: imageUrl
+					// });
+					//  writer.appendText('i', link);
+
+					// const link = writer.createElement(  'p', null, [ 'foo', writer.createElement( 'img' ) ] ); 
+					// const link = writer.createAttributeElement( 'strong' );
+					// writer.createAttributeElement( 'strong', { 'alignment': 'center' } );
+					
+					// Make `<a>` element contain other attributes element so the `<a>` element is not broken.
+					// const link = writer.createAttributeElement( 'a', { href: 'foo.bar' }, { priority: 5 } );
+					
+					// // Set `id` of a marker element so it is not joined or merged with "normal" elements.
+					// writer.createAttributeElement( 'span', { class: 'myMarker' }, { id: 'marker:my' } );
+                    // const link = writer.createElement( 'image', {
+					// 	src: "i",
+					// 	alt: imageUrl,
+					// 	'data-mthml': "data.detail.latexFrmla",
+					// } );
+					// const link = writer.createText('i', {
+					// 	linkHref: 'https://file_link',
+					// 	linkTitle: imageUrl,
+					// 		title: imageUrl,
+					// 		'title': imageUrl,
+					// 		id: "anchor-abc",
+					// 		linkClass: "aaaa",
+					// 		'linkClass': "bbbb",
+						
+					//   });
+					//   console.log("before", link._attrs);
+					  //link._attrs[0].push("title", "adil amanat")
+					//   writer.setAttribute( 'class', imageUrl, link );
+				// 	const link = writer.createElement(`
+				// 	<p>&nbsp;</p>
+				// 	<a
+				// 	href="${imageUrl}"
+				// 	data-fancybox="group"
+				// 	>
+				// 		i
+				// 	</a>
+				// 	<h3 class="text-center">${imageUrl}</h3>
+				// 	<p>&nbsp;</p>
+				// `);
+
+					const root = editor.model.document.getRoot();
+					const p = writer.createElement( 'paragraph' );
+					const link = writer.createText( 'FooBar', /*{ 'test': 3 }*/ );
+
+					writer.setAttribute( 'test', 3, p );
+					writer.insert( link, p );
+					editor.model.insertContent( link, editor.model.document.selection );
+
                 } );
             } );
 
