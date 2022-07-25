@@ -62,13 +62,13 @@ ClassicEditor.builtinPlugins = [
 	BlockQuote,
 	Heading,
 	Image,
-	// ImageInsert,
-	// ImageCaption,
-	// ImageStyle,
-	// ImageToolbar,
-	// ImageResize,
-	// ImageResizeEditing,
-	// ImageResizeButtons,
+	ImageInsert,
+	ImageCaption,
+	ImageStyle,
+	ImageToolbar,
+	ImageResize,
+	ImageResizeEditing,
+	ImageResizeButtons,
 	Indent,
 	Link,
 	LinkImage,
@@ -110,93 +110,41 @@ ClassicEditor.defaultConfig = {
 		],
 		shouldNotGroupWhenFull: true
 	},
-	// image: {
-	// 	styles: [
-	// 		'alignLeft',
-	// 		'alignCenter',
-	// 		'alignRight',
-	// 	],
-	// 	resizeOptions: [
-	// 		{
-	// 			name: 'resizeImage:original',
-	// 			value: null,
-	// 			icon: 'original'
-	// 		},
-	// 		{
-	// 			name: 'resizeImage:50',
-	// 			value: '50',
-	// 			icon: 'medium'
-	// 		},
-	// 		{
-	// 			name: 'resizeImage:75',
-	// 			value: '75',
-	// 			icon: 'large'
-	// 		}
-	// 	],
-	// 	toolbar: [
-	// 		'imageStyle:alignLeft',
-	// 		'imageStyle:alignCenter',
-	// 		'imageStyle:alignRight',
-	// 		'|',
-	// 		'imageTextAlternative',
-	// 		'|',
-	// 		'resizeImage:50',
-	// 		'resizeImage:75',
-	// 		'resizeImage:original',
-	// 		'|',
-	// 		'linkImage',
-	// 	]
-	// },
 	image: {
-		styles: {
-			// Defining custom styling options for the images.
-			options: [ {
-				name: 'side',
-				//icon: sideIcon,
-				title: 'Side image',
-				className: 'image-side',
-				modelElements: [ 'imageBlock' ]
-			}, {
-				name: 'margin-left',
-				//icon: leftIcon,
-				title: 'Image on left margin',
-				className: 'image-margin-left',
-				modelElements: [ 'imageInline' ]
-			}, {
-				name: 'margin-right',
-				//icon: rightIcon,
-				title: 'Image on right margin',
-				className: 'image-margin-right',
-				modelElements: [ 'imageInline' ]
-			},
-			// Modifying icons and titles of the default inline and
-			// block image styles to reflect its real appearance.
+		styles: [
+			'alignLeft',
+			'alignCenter',
+			'alignRight',
+		],
+		resizeOptions: [
 			{
-				name: 'inline',
-				//icon: inlineIcon
-			}, {
-				name: 'block',
-				title: 'Centered image',
-				//icon: centerIcon
-			} ]
-		},
-		toolbar: [ {
-			// Grouping the buttons for the icon-like image styling
-			// into one drop-down.
-			name: 'imageStyle:icons',
-			items: [
-				'imageStyle:margin-left',
-				'imageStyle:margin-right',
-				'imageStyle:inline'
-			],
-			defaultItem: 'imageStyle:margin-left'
-		}, {
-			// Grouping the buttons for the regular
-			// picture-like image styling into one drop-down.
-			name: 'imageStyle:pictures',
-			items: [ 'imageStyle:block', 'imageStyle:side' ],
-			defaultItem: 'imageStyle:block'
-		}, '|', 'linkImage'
+				name: 'resizeImage:original',
+				value: null,
+				icon: 'original'
+			},
+			{
+				name: 'resizeImage:50',
+				value: '50',
+				icon: 'medium'
+			},
+			{
+				name: 'resizeImage:75',
+				value: '75',
+				icon: 'large'
+			}
+		],
+		toolbar: [
+			'imageStyle:alignLeft',
+			'imageStyle:alignCenter',
+			'imageStyle:alignRight',
+			'|',
+			'imageTextAlternative',
+			'|',
+			'resizeImage:50',
+			'resizeImage:75',
+			'resizeImage:original',
+			'|',
+			'linkImage',
 		]
 	},
 	table: {
@@ -228,8 +176,7 @@ ClassicEditor.defaultConfig = {
 		};
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
-	language: 'en',
-	extraAllowedContent: 'figcaption'
+	language: 'en', 
 
 };
 
@@ -247,12 +194,15 @@ class InsertToolTip extends Plugin {
 
             // Callback executed once the image is clicked.
             view.on( 'execute', () => {
-                const imageUrl = prompt( 'ToolTip Text' );
+                const inputTooltipText = prompt( 'ToolTip Text' );
                 editor.model.change( writer => {
-                    const link = writer.createElement( 'image', {
-						src: "i",
-						alt: imageUrl,
-					} );
+                    // const link = writer.createElement( 'link', {
+					// 	href: "#bayut-content-tooltip",
+					// 	alt: inputTooltipText,
+					// } );
+					const link = writer.createText(inputTooltipText, {
+						linkHref: "#bayut-content-tooltip"
+					  });
                     // Insert the image in the current selection location.
                     editor.model.insertContent( link, editor.model.document.selection );
 
@@ -261,7 +211,7 @@ class InsertToolTip extends Plugin {
 
 					// const link = writer.createElement('a', {
 					// 	href: '', 
-					// 	title: imageUrl
+					// 	title: inputTooltipText
 					// });
 					//  writer.appendText('i', link);
 
@@ -276,14 +226,14 @@ class InsertToolTip extends Plugin {
 					// writer.createAttributeElement( 'span', { class: 'myMarker' }, { id: 'marker:my' } );
                     // const link = writer.createElement( 'image', {
 					// 	src: "i",
-					// 	alt: imageUrl,
+					// 	alt: inputTooltipText,
 					// 	'data-mthml': "data.detail.latexFrmla",
 					// } );
 					// const link = writer.createText('image', {
 					// 	linkHref: 'https://file_link',
-					// 	linkTitle: imageUrl,
-					// 		title: imageUrl,
-					// 		'title': imageUrl,
+					// 	linkTitle: inputTooltipText,
+					// 		title: inputTooltipText,
+					// 		'title': inputTooltipText,
 					// 		id: "anchor-abc",
 					// 		linkClass: "aaaa",
 					// 		'linkClass': "bbbb",
@@ -291,16 +241,16 @@ class InsertToolTip extends Plugin {
 					//   });
 					//   console.log("before", link._attrs);
 					  //link._attrs[0].push("title", "adil amanat")
-					//   writer.setAttribute( 'class', imageUrl, link );
+					//   writer.setAttribute( 'class', inputTooltipText, link );
 				// 	const link = writer.createElement(`
 				// 	<p>&nbsp;</p>
 				// 	<a
-				// 	href="${imageUrl}"
+				// 	href="${inputTooltipText}"
 				// 	data-fancybox="group"
 				// 	>
 				// 		i
 				// 	</a>
-				// 	<h3 class="text-center">${imageUrl}</h3>
+				// 	<h3 class="text-center">${inputTooltipText}</h3>
 				// 	<p>&nbsp;</p>
 				// `);
 
