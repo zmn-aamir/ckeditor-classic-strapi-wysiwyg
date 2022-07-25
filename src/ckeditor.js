@@ -152,19 +152,19 @@ ClassicEditor.defaultConfig = {
 			// Defining custom styling options for the images.
 			options: [ {
 				name: 'side',
-				icon: sideIcon,
+				//icon: sideIcon,
 				title: 'Side image',
 				className: 'image-side',
 				modelElements: [ 'imageBlock' ]
 			}, {
 				name: 'margin-left',
-				icon: leftIcon,
+				//icon: leftIcon,
 				title: 'Image on left margin',
 				className: 'image-margin-left',
 				modelElements: [ 'imageInline' ]
 			}, {
 				name: 'margin-right',
-				icon: rightIcon,
+				//icon: rightIcon,
 				title: 'Image on right margin',
 				className: 'image-margin-right',
 				modelElements: [ 'imageInline' ]
@@ -173,11 +173,11 @@ ClassicEditor.defaultConfig = {
 			// block image styles to reflect its real appearance.
 			{
 				name: 'inline',
-				icon: inlineIcon
+				//icon: inlineIcon
 			}, {
 				name: 'block',
 				title: 'Centered image',
-				icon: centerIcon
+				//icon: centerIcon
 			} ]
 		},
 		toolbar: [ {
