@@ -220,7 +220,7 @@ class InsertToolTip extends Plugin {
 					
 					// // Set `id` of a marker element so it is not joined or merged with "normal" elements.
 					// writer.createAttributeElement( 'span', { class: 'myMarker' }, { id: 'marker:my' } );
-                    const link = writer.createElement( 'Image', {
+                    const link = writer.createElement( 'image', {
 						src: "i",
 						alt: imageUrl,
 						'data-mthml': "data.detail.latexFrmla",
