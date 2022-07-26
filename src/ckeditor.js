@@ -44,9 +44,9 @@ import sanitizeHtml from 'sanitize-html';
 import FullScreen from './fullscreen-plugin';
 // This SVG file import will be handled by webpack's raw-text loader.
 // This means that imageIcon will hold the source SVG.
-import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/pencil.svg';
-import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
-import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview'; 
+// import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/pencil.svg';
+// import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
+// import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview'; 
 
 export default class ClassicEditor extends ClassicEditorBase { }
 
@@ -180,92 +180,92 @@ ClassicEditor.defaultConfig = {
 
 };
 
-class InsertToolTip extends Plugin {
-    init() {
-        const editor = this.editor;
-        editor.ui.componentFactory.add( 'InsertToolTip', locale => {
-            const view = new ButtonView( locale );
+// class InsertToolTip extends Plugin {
+//     init() {
+//         const editor = this.editor;
+//         editor.ui.componentFactory.add( 'InsertToolTip', locale => {
+//             const view = new ButtonView( locale );
 
-            view.set( {
-                label: 'Tooltip',
-                icon: imageIcon,
-                tooltip: true
-            } );
+//             view.set( {
+//                 label: 'Tooltip',
+//                 icon: imageIcon,
+//                 tooltip: true
+//             } );
 
-            // Callback executed once the image is clicked.
-            view.on( 'execute', () => {
-                const inputTooltipText = prompt( 'ToolTip Text' );
-                editor.model.change( writer => {
-                    // const link = writer.createElement( 'link', {
-					// 	href: "#bayut-content-tooltip",
-					// 	alt: inputTooltipText,
-					// } );
-					const link = writer.createText(inputTooltipText, {
-						linkHref: "#bayut-content-tooltip"
-					  });
-                    // Insert the image in the current selection location.
-                    editor.model.insertContent( link, editor.model.document.selection );
-
-
+//             // Callback executed once the image is clicked.
+//             view.on( 'execute', () => {
+//                 const inputTooltipText = prompt( 'ToolTip Text' );
+//                 editor.model.change( writer => {
+//                     // const link = writer.createElement( 'link', {
+// 					// 	href: "#bayut-content-tooltip",
+// 					// 	alt: inputTooltipText,
+// 					// } );
+// 					const link = writer.createText(inputTooltipText, {
+// 						linkHref: "#bayut-content-tooltip"
+// 					  });
+//                     // Insert the image in the current selection location.
+//                     editor.model.insertContent( link, editor.model.document.selection );
 
 
-					// const link = writer.createElement('a', {
-					// 	href: '', 
-					// 	title: inputTooltipText
-					// });
-					//  writer.appendText('i', link);
 
-					// const link = writer.createElement(  'p', null, [ 'foo', writer.createElement( 'img' ) ] ); 
-					// const link = writer.createAttributeElement( 'strong' );
-					// writer.createAttributeElement( 'strong', { 'alignment': 'center' } );
+
+// 					// const link = writer.createElement('a', {
+// 					// 	href: '', 
+// 					// 	title: inputTooltipText
+// 					// });
+// 					//  writer.appendText('i', link);
+
+// 					// const link = writer.createElement(  'p', null, [ 'foo', writer.createElement( 'img' ) ] ); 
+// 					// const link = writer.createAttributeElement( 'strong' );
+// 					// writer.createAttributeElement( 'strong', { 'alignment': 'center' } );
 					
-					// Make `<a>` element contain other attributes element so the `<a>` element is not broken.
-					// const link = writer.createAttributeElement( 'a', { href: 'foo.bar' }, { priority: 5 } );
+// 					// Make `<a>` element contain other attributes element so the `<a>` element is not broken.
+// 					// const link = writer.createAttributeElement( 'a', { href: 'foo.bar' }, { priority: 5 } );
 					
-					// // Set `id` of a marker element so it is not joined or merged with "normal" elements.
-					// writer.createAttributeElement( 'span', { class: 'myMarker' }, { id: 'marker:my' } );
-                    // const link = writer.createElement( 'image', {
-					// 	src: "i",
-					// 	alt: inputTooltipText,
-					// 	'data-mthml': "data.detail.latexFrmla",
-					// } );
-					// const link = writer.createText('image', {
-					// 	linkHref: 'https://file_link',
-					// 	linkTitle: inputTooltipText,
-					// 		title: inputTooltipText,
-					// 		'title': inputTooltipText,
-					// 		id: "anchor-abc",
-					// 		linkClass: "aaaa",
-					// 		'linkClass': "bbbb",
+// 					// // Set `id` of a marker element so it is not joined or merged with "normal" elements.
+// 					// writer.createAttributeElement( 'span', { class: 'myMarker' }, { id: 'marker:my' } );
+//                     // const link = writer.createElement( 'image', {
+// 					// 	src: "i",
+// 					// 	alt: inputTooltipText,
+// 					// 	'data-mthml': "data.detail.latexFrmla",
+// 					// } );
+// 					// const link = writer.createText('image', {
+// 					// 	linkHref: 'https://file_link',
+// 					// 	linkTitle: inputTooltipText,
+// 					// 		title: inputTooltipText,
+// 					// 		'title': inputTooltipText,
+// 					// 		id: "anchor-abc",
+// 					// 		linkClass: "aaaa",
+// 					// 		'linkClass': "bbbb",
 						
-					//   });
-					//   console.log("before", link._attrs);
-					  //link._attrs[0].push("title", "adil amanat")
-					//   writer.setAttribute( 'class', inputTooltipText, link );
-				// 	const link = writer.createElement(`
-				// 	<p>&nbsp;</p>
-				// 	<a
-				// 	href="${inputTooltipText}"
-				// 	data-fancybox="group"
-				// 	>
-				// 		i
-				// 	</a>
-				// 	<h3 class="text-center">${inputTooltipText}</h3>
-				// 	<p>&nbsp;</p>
-				// `);
+// 					//   });
+// 					//   console.log("before", link._attrs);
+// 					  //link._attrs[0].push("title", "adil amanat")
+// 					//   writer.setAttribute( 'class', inputTooltipText, link );
+// 				// 	const link = writer.createElement(`
+// 				// 	<p>&nbsp;</p>
+// 				// 	<a
+// 				// 	href="${inputTooltipText}"
+// 				// 	data-fancybox="group"
+// 				// 	>
+// 				// 		i
+// 				// 	</a>
+// 				// 	<h3 class="text-center">${inputTooltipText}</h3>
+// 				// 	<p>&nbsp;</p>
+// 				// `);
 
-					// const root = editor.model.document.getRoot();
-					// const p = writer.createElement( 'paragraph' );
-					// const link = writer.createText( 'FooBar', /*{ 'test': 3 }*/ );
+// 					// const root = editor.model.document.getRoot();
+// 					// const p = writer.createElement( 'paragraph' );
+// 					// const link = writer.createText( 'FooBar', /*{ 'test': 3 }*/ );
 
-					// writer.setAttribute( 'test', 3, p );
-					// writer.insert( link, p );
-					// editor.model.insertContent( link, editor.model.document.selection );
+// 					// writer.setAttribute( 'test', 3, p );
+// 					// writer.insert( link, p );
+// 					// editor.model.insertContent( link, editor.model.document.selection );
 
-                } );
-            } );
+//                 } );
+//             } );
 
-            return view;
-        } ); 
-    }
-}
+//             return view;
+//         } ); 
+//     }
+// }
