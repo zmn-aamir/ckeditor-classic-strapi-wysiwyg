@@ -1,5 +1,4 @@
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
-
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
@@ -189,77 +188,15 @@ class InsertToolTip extends Plugin {
                 icon: imageIcon,
                 tooltip: true
             } );
-
             // Callback executed once the image is clicked.
             view.on( 'execute', () => {
                 const inputTooltipText = prompt( 'ToolTip Text' );
                 editor.model.change( writer => {
-                    // const link = writer.createElement( 'link', {
-					// 	href: "#bayut-content-tooltip",
-					// 	alt: inputTooltipText,
-					// } );
 					const link = writer.createText(inputTooltipText, {
 						linkHref: "#bayut-content-tooltip"
-					  });
+					});
                     // Insert the image in the current selection location.
                     editor.model.insertContent( link, editor.model.document.selection );
-
-
-
-
-					// const link = writer.createElement('a', {
-					// 	href: '', 
-					// 	title: inputTooltipText
-					// });
-					//  writer.appendText('i', link);
-
-					// const link = writer.createElement(  'p', null, [ 'foo', writer.createElement( 'img' ) ] ); 
-					// const link = writer.createAttributeElement( 'strong' );
-					// writer.createAttributeElement( 'strong', { 'alignment': 'center' } );
-					
-					// Make `<a>` element contain other attributes element so the `<a>` element is not broken.
-					// const link = writer.createAttributeElement( 'a', { href: 'foo.bar' }, { priority: 5 } );
-					
-					// // Set `id` of a marker element so it is not joined or merged with "normal" elements.
-					// writer.createAttributeElement( 'span', { class: 'myMarker' }, { id: 'marker:my' } );
-                    // const link = writer.createElement( 'image', {
-					// 	src: "i",
-					// 	alt: inputTooltipText,
-					// 	'data-mthml': "data.detail.latexFrmla",
-					// } );
-					// const link = writer.createText('image', {
-					// 	linkHref: 'https://file_link',
-					// 	linkTitle: inputTooltipText,
-					// 		title: inputTooltipText,
-					// 		'title': inputTooltipText,
-					// 		id: "anchor-abc",
-					// 		linkClass: "aaaa",
-					// 		'linkClass': "bbbb",
-						
-					//   });
-					//   console.log("before", link._attrs);
-					  //link._attrs[0].push("title", "adil amanat")
-					//   writer.setAttribute( 'class', inputTooltipText, link );
-				// 	const link = writer.createElement(`
-				// 	<p>&nbsp;</p>
-				// 	<a
-				// 	href="${inputTooltipText}"
-				// 	data-fancybox="group"
-				// 	>
-				// 		i
-				// 	</a>
-				// 	<h3 class="text-center">${inputTooltipText}</h3>
-				// 	<p>&nbsp;</p>
-				// `);
-
-					// const root = editor.model.document.getRoot();
-					// const p = writer.createElement( 'paragraph' );
-					// const link = writer.createText( 'FooBar', /*{ 'test': 3 }*/ );
-
-					// writer.setAttribute( 'test', 3, p );
-					// writer.insert( link, p );
-					// editor.model.insertContent( link, editor.model.document.selection );
-
                 } );
             } );
 
